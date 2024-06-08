@@ -1,0 +1,282 @@
+header {
+    background-color: rgb(126, 126, 126); 
+    color: white; 
+    padding: 15px 20px; 
+    border-radius: 0 0 10px 10px;
+    /*width: 95%;*/
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 120px; 
+    height: auto; 
+}
+
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style-type: none;
+    margin-left: 20px; 
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #000000; 
+}
+
+body {
+    background-color: white;
+    color: black; 
+    font-family: 'poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+} 
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: red;
+}
+
+.ifagVault, .rejoindre {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 60px;
+    width: 100%;
+    background: linear-gradient(to right, #f75f5f, #ba1827);
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.ifagVault:hover, .rejoindre:hover {
+    background: linear-gradient(to right, #ba1827, #f75f5f);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.ifagVault:active, .rejoindre:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.fonctionnement {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 60px;
+    width: 92.5%;
+    background: linear-gradient(to right, #f75f5f, #ba1827);
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.fonctionnement:hover {
+    background: linear-gradient(to right, #ba1827, #f75f5f);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.fonctionnement:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ifag {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 60px;
+    width: 92.5%;
+    background: linear-gradient(to right, #f75f5f, #ba1827);
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.ifag:hover {
+    background: linear-gradient(to right, #ba1827, #f75f5f);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.ifag:activee {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2 u {
+    color: rgb(255, 255, 255);
+}
+
+.ifagVault, .rejoindre, .fonctionnement, .ifag, .ifag-buttons {
+    width: 92.5%;
+}
+
+.ifagVault2, .rejoindre2, .fonctionnement2, .ifag2, .ifag-buttons, .ifag-buttons2 {
+    width: 92.5%;
+}
+
+.ifag-buttons {
+    background: linear-gradient(to right, #f75f5f, #ba1827);
+    color: white;
+    border: none; 
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.ifag-buttons:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.ifag-buttons:hover {
+    background: linear-gradient(to right, #ba1827, #f75f5f);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+button{
+    background-color: #ba1827; 
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: none;
+    margin: 2px;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: #ba1827;
+    color: white;
+    border: none;
+    padding: 20px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(126, 126, 126);
+    color: #000000;
+    padding: 1px 20px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    margin: 2px;
+}
+
+footer .contact-info a {
+    color: black;
+    text-decoration: underline; 
+}
+
+footer .contact-info a:hover {
+    color: rgb(255, 255, 255); 
+    text-decoration: none;
+    transition: all 0.1s ease; 
+}
+
+@media (max-width: 850px) {
+    .ifagVault, .rejoindre, .fonctionnement, .ifag{
+        margin: 20px;
+        width: auto;
+    }
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .logo img {
+        width: 100px;
+    }
+    button {
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+    
+    footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 60px;
+        width: 68%;
+        
+    }
+    .ifag-buttons{
+        margin: 20px;
+        width: auto;
+    }
+}
