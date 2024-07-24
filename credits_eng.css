@@ -1,4 +1,4 @@
-/* Styles généraux */
+/* Styles globaux */
 body {
     font-family: 'Poppins', sans-serif;
     font-size: large;
@@ -20,9 +20,9 @@ body {
 /* Styles pour l'en-tête */
 header {
     position: fixed; /* Fixe l'en-tête en haut */
-    top: 0; /* Aligne en haut */
-    left: 0; /* Aligne à gauche */
-    width: 100%; /* Largeur totale */
+    top: 0; /* L'aligne en haut */
+    left: 0; /* L'aligne à gauche */
+    width: 100%; /* Pleine largeur */
     background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
     color: #ffffff;
     padding: 1px 0;
@@ -41,7 +41,8 @@ header {
 
 .header-content img {
     height: 70px;
-    transition: transform 0.3s ease;
+    transition: transform 0.1s ease;
+    size: 10px;
 }
 
 .header-content img:hover {
@@ -74,58 +75,71 @@ nav ul li a:hover {
 /* Styles pour le contenu principal */
 main {
     padding: 40px 20px;
-    max-width: 800px;
-    margin: 80px auto 1px; /* Ajuster la marge supérieure pour tenir compte de la hauteur de l'en-tête */
-    background: rgba(255, 255, 255, 0.8); /* Fond transparent */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 70px;
 }
 
-/* Sections */
-.about-intro, .mission, .team {
-    margin-bottom: 40px;
-    padding: 20px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.8); /* Fond transparent */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: rgba(0, 0, 0, 0.8);
-}
-
-.about-intro h2, .mission h3, .team h3 {
+span {
     color: #007bff;
-    font-size: 2em;
+    text-shadow: 0 0 10px #112f4f;
 }
 
-/* Styles pour les membres de l'équipe */
-.team-member {
+.credits {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.credits h2 {
+    color: #007bff;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.credits p {
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Styles pour les éléments de crédit */
+.credit-item {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 20px; /* Ajouter du padding autour de la section membre de l'équipe */
-    border-radius: 10px; /* Optionnel : ajouter un rayon de bordure pour un look arrondi */
-    background: rgba(255, 255, 255, 0.9); /* Fond légèrement opaque blanc */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée pour un effet 3D */
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    background-color: rgba(0, 123, 255, 0.1);
 }
 
-.team-member img {
-    border-radius: 50%; /* Rendre l'image circulaire */
-    width: 120px; /* Ajuster la largeur selon les besoins */
-    height: 120px; /* Ajuster la hauteur selon les besoins */
-    object-fit: cover; /* Assurer que l'image couvre la zone */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optionnel : ajouter une ombre pour faire ressortir l'image */
+.credit-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
 }
 
-.team-member h4 {
+.credit-image img:hover {
+    transform: scale(1.1);
+}
+
+.credit-text h3 {
+    font-size: 1.5em;
     margin: 0;
-    color: #007bff;
 }
 
-.team-member p {
-    margin: 0;
-    line-height: 1.5; /* Ajuster l'interligne pour la lisibilité */
+.credit-text p {
+    font-size: 1.1em;
+    color: #555;
 }
 
-/* Styles pour le pied de page */
+/* Footer Styles */
 footer {
     background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
     color: #ffffff;
@@ -160,13 +174,12 @@ footer {
 .footer-rights {
     flex: 1;
     text-align: right;
-    margin-right: 20px; /* Ajuster la marge si nécessaire */
+    margin-right: 20px; /* Adjust the margin as needed */
     margin-top: 20px;
     font-size: large;
 }
 
 .footer-content img {
-    margin-left: 10px;
     max-width: 150px;
     transition: transform 0.3s ease;
 }
@@ -194,18 +207,4 @@ footer {
 .footer-content a:hover {
     color: #ffc107;
     text-shadow: 0 0 10px #ffc107;
-}
-
-/* Design réactif */
-@media (max-width: 768px) {
-    .header-content, .footer-content {
-        flex-direction: column;
-        align-items: center;
-    }
-    nav ul {
-        flex-direction: column;
-    }
-    nav ul li {
-        margin: 10px 0;
-    }
 }
