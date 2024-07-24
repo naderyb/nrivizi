@@ -1,206 +1,50 @@
-header {
-    background-color: rgb(126, 126, 126); 
-    color: white; 
-    padding: 15px 20px;
-    border-radius: 0 0 10px 10px;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.ifagVault img {
-    width: 120px; 
-    height: auto; 
-}
-
-nav ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    list-style-type: none;
-    margin-left: 20px; 
-}
-
-nav ul li:first-child {
-    margin-left: 0;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: rgb(0, 0, 0); 
-}
-
 body {
-    background-color: #ffffff;
-    color: black; 
-    font-family: 'poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}  
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-a:hover {
-    color: rgb(255, 255, 255);
-}
-
-button{
-    background-color: #ba1827; 
-    border-radius: 10px;
-    padding: 10px 10px;
-    border: none;
-    margin: 2px;
-    font-size: 19px;
-}
-
-button:hover{
-    background-color: #ba1827;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 2px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.1s ease;
-    font-size: 19px;
-    margin: 10px;
-    border-radius: 10px;
-}
-
-.founder-box, .specialty-box, .extra-box {
-    background-color: #f1f1f1;
-    border: none;
-    padding: 20px;
-    border-radius: 10px 10px 10px 10px;
-    margin: 60px;
-    width: 92.5%;
-    background: linear-gradient(to right, #f75f5f, #ba1827);
-    color: white;
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.founder-box:hover, .specialty-box:hover, .extra-box:hover{
-    background: linear-gradient(to right, #ba1827, #f75f5f);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-
-.founder-box:active, .specialty-box:active, .extra-box:active{
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.specialty-container{
-    background-color: #ba1827;
-    border: none;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 60px;
-    width: 92.5%;
-    color: white;
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.specialty-container:active{
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-.specialty-container:hover{
-    background-color: #ba1827;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-
-footer {
+    font-family: 'Roboto', sans-serif;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: rgb(126, 126, 126);
-    color: #000000;
-    padding: 1px 20px;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #c33764, #1d2671, #86a8e7, #7f7fd5);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: #ffffff;
     text-align: center;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #ffffff;
+    background-color: #007bff;
     border: none;
-    margin: 2px;
-}
-
-footer .contact-info a {
-    color: black;
-    text-decoration: underline; 
-}
-
-footer .contact-info a:hover {
-    color: rgb(255, 255, 255); 
+    border-radius: 5px;
     text-decoration: none;
-    transition: all 0.1s ease; 
+    transition: background-color 0.3s ease;
 }
 
-@media (max-width: 850px) {
-    .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-
-    .ifagVault img {
-        width: 100px;
-    }
-
-    .founder-box, .specialty-box, .extra-box, .specialty-container {
-        margin: 20px 0;
-        width: auto;
-    }
-
-    button {
-        font-size: 18px;
-        padding: 10px 15px;
-    }
-
-    footer {
-        flex-direction: column;
-        align-items: center;
-        padding: 30px;
-    }
+.btn:hover {
+    background-color: #0056b3;
 }

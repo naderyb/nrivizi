@@ -1,0 +1,290 @@
+/*for smooth scrolling*/
+html {
+    scroll-behavior: smooth;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #c33764, #1d2671, #86a8e7, #7f7fd5);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: #ffffff;
+}
+
+/* Keyframes for background animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header Styles */
+header {
+    position: fixed; /* Fixes the header at the top */
+    top: 0; /* Aligns it to the top */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width */
+    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    color: #ffffff;
+    padding: 1px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1546px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-content img {
+    height: 70px;
+    transition: transform 0.3s ease;
+    size: 10px;
+}
+
+.header-content img:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: larger;
+}
+
+nav ul li a:hover {
+    color: #ffc107;
+    text-shadow: 0 0 10px #ffc107;
+}
+
+/* Main Content Styles */
+main {
+    padding: 40px 20px;
+    margin-top: 70px;
+}
+
+
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.8); /* Transparent background */
+    border-radius: 10px;
+    padding: 20px;
+    backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the transparent background */
+}
+
+.intro h2 {
+    color: #007bff;
+    font-size: 2.5em;
+    animation: fadeIn 2s ease-out;
+}
+
+.intro p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Specialties Section Styles */
+.specialties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+span {
+    color: #007bff;
+    text-shadow: 0 0 10px #007bff;
+}
+
+.specialty {
+    background: rgba(255, 255, 255, 0.8); /* Transparent background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.specialty:hover {
+    transform: scale(1.05);
+}
+
+.specialty h3 {
+    color: #007bff;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.specialty ul {
+    list-style: none;
+    padding: 0;
+}
+
+.specialty ul li {
+    margin-bottom: 10px;
+}
+
+/* Enhanced Button Styles */
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    color: #ffffff;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1646px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo_ifag {
+    flex: 1;
+    text-align: left;
+    margin-top: 25px;
+}
+
+.contact-info {
+    flex: 1;
+    text-align: center;
+    font-size: large;
+}
+
+.footer-rights {
+    flex: 1;
+    text-align: right;
+    margin-right: 20px; /* Adjust the margin as needed */
+    margin-top: 20px;
+    font-size: large;
+}
+
+.footer-content img {
+    max-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.footer-content img:hover {
+    transform: scale(1.1);
+}
+
+.footer-content h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+.footer-content a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+    color: #ffc107;
+    text-shadow: 0 0 10px #ffc107;
+}
+
+/* Make sure the footer content is displayed correctly */
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content, .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+    .specialties {
+        flex-direction: column;
+    }
+}
+
+/* Keyframes for text fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

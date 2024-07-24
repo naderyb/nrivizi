@@ -1,282 +1,218 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #c33764, #1d2671, #86a8e7, #7f7fd5);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: #ffffff;
+}
+
+/* Keyframes for background animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header Styles */
 header {
-    background-color: rgb(126, 126, 126); 
-    color: white; 
-    padding: 15px 20px; 
-    border-radius: 0 0 10px 10px;
-    /*width: 95%;*/
+    position: fixed; /* Fixes the header at the top */
+    top: 0; /* Aligns it to the top */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width */
+    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    color: #ffffff;
+    padding: 1px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensures it stays above other content */
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1546px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.logo img {
-    width: 120px; 
-    height: auto; 
+.header-content img {
+    height: 70px;
+    transition: transform 0.3s ease;
+}
+
+.header-content img:hover {
+    transform: scale(1.1);
 }
 
 nav ul {
-    display: flex;
+    list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
 nav ul li {
-    list-style-type: none;
-    margin-left: 20px; 
-}
-
-nav ul li:first-child {
-    margin-left: 0;
+    margin-left: 20px;
 }
 
 nav ul li a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    transition: color 0.3s;
+    font-weight: 500;
+    font-size: larger;
 }
 
 nav ul li a:hover {
-    color: #000000; 
+    color: #ffc107;
+    text-shadow: 0 0 10px #ffc107;
 }
 
-body {
-    background-color: white;
-    color: black; 
-    font-family: 'poppins', sans-serif;
+/* Main Content Styles */
+main {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 80px auto 1px; /* Adjust top margin to account for header height */
+    background: rgba(255, 255, 255, 0.8); /* Transparent background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Sections */
+.about-intro, .mission, .team {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8); /* Transparent background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.8) ;
+}
+
+.about-intro h2, .mission h3, .team h3 {
+    color: #007bff;
+    font-size: 2em;
+}
+
+/* Team Member Styles */
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px; /* Add padding around the team member section */
+    border-radius: 10px; /* Optional: Add a border radius for a rounded look */
+    background: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
+}
+
+.team-member img {
+    border-radius: 50%; /* Make the image circular */
+    width: 120px; /* Adjust width as needed */
+    height: 120px; /* Adjust height as needed */
+    object-fit: cover; /* Ensure the image covers the area */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Add shadow to make the image pop */
+}
+
+.team-member h4 {
     margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-} 
-
-a {
-    text-decoration: none;
-    color: black;
-    transition: color 0.3s;
+    color: #007bff;
 }
 
-a:hover {
-    color: red;
+.team-member p {
+    margin: 0;
+    line-height: 1.5; /* Adjust line height for readability */
 }
 
-.ifagVault, .rejoindre {
-    background-color: #f1f1f1;
-    border: none;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 60px;
-    width: 100%;
-    background: linear-gradient(to right, #f75f5f, #ba1827);
-    color: white;
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
 
-.ifagVault:hover, .rejoindre:hover {
-    background: linear-gradient(to right, #ba1827, #f75f5f);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-
-.ifagVault:active, .rejoindre:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.fonctionnement {
-    background-color: #f1f1f1;
-    border: none;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 60px;
-    width: 92.5%;
-    background: linear-gradient(to right, #f75f5f, #ba1827);
-    color: white;
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.fonctionnement:hover {
-    background: linear-gradient(to right, #ba1827, #f75f5f);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-
-.fonctionnement:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.ifag {
-    background-color: #f1f1f1;
-    border: none;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 60px;
-    width: 92.5%;
-    background: linear-gradient(to right, #f75f5f, #ba1827);
-    color: white;
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.ifag:hover {
-    background: linear-gradient(to right, #ba1827, #f75f5f);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-
-.ifag:activee {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-h2 u {
-    color: rgb(255, 255, 255);
-}
-
-.ifagVault, .rejoindre, .fonctionnement, .ifag, .ifag-buttons {
-    width: 92.5%;
-}
-
-.ifagVault2, .rejoindre2, .fonctionnement2, .ifag2, .ifag-buttons, .ifag-buttons2 {
-    width: 92.5%;
-}
-
-.ifag-buttons {
-    background: linear-gradient(to right, #f75f5f, #ba1827);
-    color: white;
-    border: none; 
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px;
-    cursor: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.ifag-buttons:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-.ifag-buttons:hover {
-    background: linear-gradient(to right, #ba1827, #f75f5f);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-button{
-    background-color: #ba1827; 
-    border-radius: 10px;
-    padding: 10px 20px;
-    border: none;
-    margin: 2px;
-    font-size: 16px;
-}
-
-button:hover{
-    background-color: #ba1827;
-    color: white;
-    border: none;
-    padding: 20px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 2px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.1s ease;
-    font-size: 16px;
-    margin: 10px;
-    border-radius: 10px;
-}
 
 footer {
+    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    color: #ffffff;
+    padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(126, 126, 126);
-    color: #000000;
-    padding: 1px 20px;
+    max-width: 1646px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo_ifag {
+    flex: 1;
+    text-align: left;
+    margin-top: 25px;
+}
+
+.contact-info {
+    flex: 1;
     text-align: center;
-    border-radius: 10px;
-    border: none;
-    margin: 2px;
+    font-size: large;
 }
 
-footer .contact-info a {
-    color: black;
-    text-decoration: underline; 
+.footer-rights {
+    flex: 1;
+    text-align: right;
+    margin-right: 20px; /* Adjust the margin as needed */
+    margin-top: 20px;
+    font-size: large;
 }
 
-footer .contact-info a:hover {
-    color: rgb(255, 255, 255); 
+.footer-content img {
+    margin-left: 10px;
+    max-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.footer-content img:hover {
+    transform: scale(1.1);
+}
+
+.footer-content h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+.footer-content a {
+    color: #ffffff;
     text-decoration: none;
-    transition: all 0.1s ease; 
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-@media (max-width: 850px) {
-    .ifagVault, .rejoindre, .fonctionnement, .ifag{
-        margin: 20px;
-        width: auto;
-    }
-    .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.footer-content a:hover {
+    color: #ffc107;
+    text-shadow: 0 0 10px #ffc107;
+}
 
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-
-    .logo img {
-        width: 100px;
-    }
-    button {
-        font-size: 18px;
-        padding: 10px 15px;
-    }
-    
-    footer {
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content, .footer-content {
         flex-direction: column;
         align-items: center;
-        padding: 60px;
-        width: 68%;
-        
     }
-    .ifag-buttons{
-        margin: 20px;
-        width: auto;
+    nav ul {
+        flex-direction: column;
     }
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+/* Keyframes for background animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
