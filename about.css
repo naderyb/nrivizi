@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
     font-size: large;
@@ -10,24 +9,22 @@ body {
     color: #ffffff;
 }
 
-/* Keyframes for background animation */
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Header Styles */
 header {
-    position: fixed; /* Fixes the header at the top */
-    top: 0; /* Aligns it to the top */
-    left: 0; /* Aligns it to the left */
-    width: 100%; /* Full width */
-    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    background-color: rgba(52, 58, 64, 0.8); 
     color: #ffffff;
     padding: 1px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Ensures it stays above other content */
+    z-index: 1000; 
 }
 
 .header-content {
@@ -71,24 +68,22 @@ nav ul li a:hover {
     text-shadow: 0 0 10px #ffc107;
 }
 
-/* Main Content Styles */
 main {
     padding: 40px 20px;
     max-width: 800px;
-    margin: 80px auto 1px; /* Adjust top margin to account for header height */
-    background: rgba(255, 255, 255, 0.8); /* Transparent background */
+    margin: 80px auto 1px; 
+    background: rgba(255, 255, 255, 0.8); 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Sections */
 .about-intro, .mission, .team {
     margin-bottom: 40px;
     padding: 20px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.8); /* Transparent background */
+    background: rgba(255, 255, 255, 0.8); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: rgba(0, 0, 0, 0.8) ;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .about-intro h2, .mission h3, .team h3 {
@@ -96,23 +91,17 @@ main {
     font-size: 2em;
 }
 
-/* Team Member Styles */
 .team-member {
     display: flex;
     align-items: center;
     gap: 20px;
-    padding: 20px; /* Add padding around the team member section */
-    border-radius: 10px; /* Optional: Add a border radius for a rounded look */
-    background: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
 }
 
 .team-member img {
-    border-radius: 50%; /* Make the image circular */
-    width: 120px; /* Adjust width as needed */
-    height: 120px; /* Adjust height as needed */
-    object-fit: cover; /* Ensure the image covers the area */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Add shadow to make the image pop */
+    border-radius: 10%; 
+    width: 150px; 
+    height: 150px; 
+    object-fit: cover; 
 }
 
 .team-member h4 {
@@ -122,13 +111,11 @@ main {
 
 .team-member p {
     margin: 0;
-    line-height: 1.5; /* Adjust line height for readability */
+    line-height: 1.5;
 }
 
-
-
 footer {
-    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    background-color: rgba(52, 58, 64, 0.8); 
     color: #ffffff;
     padding: 20px 0;
     display: flex;
@@ -161,7 +148,7 @@ footer {
 .footer-rights {
     flex: 1;
     text-align: right;
-    margin-right: 20px; /* Adjust the margin as needed */
+    margin-right: 20px; 
     margin-top: 20px;
     font-size: large;
 }
@@ -197,7 +184,6 @@ footer {
     text-shadow: 0 0 10px #ffc107;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .header-content, .footer-content {
         flex-direction: column;
@@ -209,11 +195,4 @@ footer {
     nav ul li {
         margin: 10px 0;
     }
-}
-
-/* Keyframes for background animation */
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }

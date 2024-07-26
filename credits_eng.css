@@ -1,4 +1,3 @@
-/* Styles globaux */
 body {
     font-family: 'Poppins', sans-serif;
     font-size: large;
@@ -10,24 +9,22 @@ body {
     color: #ffffff;
 }
 
-/* Keyframes pour l'animation de fond */
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Styles pour l'en-tête */
 header {
-    position: fixed; /* Fixe l'en-tête en haut */
-    top: 0; /* L'aligne en haut */
-    left: 0; /* L'aligne à gauche */
-    width: 100%; /* Pleine largeur */
-    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    background-color: rgba(52, 58, 64, 0.8); 
     color: #ffffff;
     padding: 1px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Assure qu'il reste au-dessus des autres contenus */
+    z-index: 1000; 
 }
 
 .header-content {
@@ -72,7 +69,6 @@ nav ul li a:hover {
     text-shadow: 0 0 10px #ffc107;
 }
 
-/* Styles pour le contenu principal */
 main {
     padding: 40px 20px;
     margin-top: 70px;
@@ -90,7 +86,7 @@ span {
     padding: 20px;
     backdrop-filter: blur(10px);
     max-width: 800px;
-    margin: 0 auto;
+    margin: 70px auto 0;
 }
 
 .credits h2 {
@@ -106,7 +102,6 @@ span {
     margin-bottom: 20px;
 }
 
-/* Styles pour les éléments de crédit */
 .credit-item {
     display: flex;
     align-items: center;
@@ -139,9 +134,8 @@ span {
     color: #555;
 }
 
-/* Footer Styles */
 footer {
-    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    background-color: rgba(52, 58, 64, 0.8);
     color: #ffffff;
     padding: 20px 0;
     display: flex;
@@ -174,7 +168,7 @@ footer {
 .footer-rights {
     flex: 1;
     text-align: right;
-    margin-right: 20px; /* Adjust the margin as needed */
+    margin-right: 20px;
     margin-top: 20px;
     font-size: large;
 }
@@ -209,7 +203,6 @@ footer {
     text-shadow: 0 0 10px #ffc107;
 }
 
-/* Media Queries pour les écrans plus petits */
 @media (max-width: 768px) {
     .header-content, .footer-content {
         flex-direction: column;
@@ -236,6 +229,7 @@ footer {
 
     .credits {
         padding: 10px;
+        margin-top: 150px;
     }
 
     .credit-item {
@@ -265,7 +259,6 @@ footer {
     }
 }
 
-/* Media Queries pour les écrans très petits */
 @media (max-width: 480px) {
     .header-content img {
         height: 40px;

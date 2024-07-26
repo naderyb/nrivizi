@@ -1,9 +1,7 @@
-/*for smooth scrolling*/
 html {
     scroll-behavior: smooth;
 }
 
-/* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
     font-size: large;
@@ -15,24 +13,22 @@ body {
     color: #ffffff;
 }
 
-/* Keyframes for background animation */
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Header Styles */
 header {
-    position: fixed; /* Fixes the header at the top */
-    top: 0; /* Aligns it to the top */
-    left: 0; /* Aligns it to the left */
-    width: 100%; /* Full width */
-    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(52, 58, 64, 0.8);
     color: #ffffff;
     padding: 1px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Ensures it stays above other content */
+    z-index: 1000;
 }
 
 .header-content {
@@ -77,20 +73,18 @@ nav ul li a:hover {
     text-shadow: 0 0 10px #ffc107;
 }
 
-/* Main Content Styles */
 main {
     padding: 40px 20px;
     margin-top: 70px;
 }
 
-
 .intro {
     text-align: center;
     margin-bottom: 40px;
-    background: rgba(255, 255, 255, 0.8); /* Transparent background */
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
-    backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the transparent background */
+    backdrop-filter: blur(10px);
 }
 
 .intro h2 {
@@ -106,7 +100,6 @@ main {
     animation: fadeIn 2s ease-out;
 }
 
-/* Specialties Section Styles */
 .specialties {
     display: flex;
     flex-wrap: wrap;
@@ -120,7 +113,7 @@ span {
 }
 
 .specialty {
-    background: rgba(255, 255, 255, 0.8); /* Transparent background */
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -149,7 +142,6 @@ span {
     margin-bottom: 10px;
 }
 
-/* Enhanced Button Styles */
 .btn {
     display: inline-block;
     background-color: #007bff;
@@ -189,10 +181,8 @@ span {
     transform: translate(-50%, -50%) scale(1);
 }
 
-
-/* Footer Styles */
 footer {
-    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    background-color: rgba(52, 58, 64, 0.8);
     color: #ffffff;
     padding: 20px 0;
     display: flex;
@@ -225,7 +215,7 @@ footer {
 .footer-rights {
     flex: 1;
     text-align: right;
-    margin-right: 20px; /* Adjust the margin as needed */
+    margin-right: 20px;
     margin-top: 20px;
     font-size: large;
 }
@@ -260,8 +250,6 @@ footer {
     text-shadow: 0 0 10px #ffc107;
 }
 
-/* Make sure the footer content is displayed correctly */
-/* Responsive Design */
 @media (max-width: 768px) {
     .header-content, .footer-content {
         flex-direction: column;
@@ -278,7 +266,6 @@ footer {
     }
 }
 
-/* Keyframes for text fade-in animation */
 @keyframes fadeIn {
     from {
         opacity: 0;

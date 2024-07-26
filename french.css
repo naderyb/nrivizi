@@ -1,9 +1,7 @@
-/* Pour le défilement fluide */
 html {
     scroll-behavior: smooth;
 }
 
-/* Styles globaux */
 body {
     font-family: 'Poppins', sans-serif;
     font-size: large;
@@ -15,29 +13,26 @@ body {
     color: #ffffff;
 }
 
-/* Keyframes pour l'animation de fond */
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Styles pour l'en-tête */
 header {
-    position: fixed; /* Fixe l'en-tête en haut */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    background-color: rgba(52, 58, 64, 0.8);
     color: #ffffff;
     padding: 1px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Assure qu'il reste au-dessus du contenu */
+    z-index: 1000;
 }
 
-/* Ajustez le padding du contenu principal pour compenser la hauteur de l'en-tête */
 body {
-    padding-top: 80px; /* Ajustez cette valeur selon la hauteur de votre en-tête */
+    padding-top: 80px;
 }
 
 .header-content {
@@ -82,21 +77,19 @@ nav ul li a:hover {
     text-shadow: 0 0 10px #ffc107;
 }
 
-/* Styles pour le contenu principal */
 main {
     padding: 40px 20px;
 }
 
-/* Assurez-vous que la section intro est juste au-dessus de l'en-tête */
 .intro {
-    position: relative; /* Pour que l'intro soit au-dessus de l'en-tête */
-    z-index: 999; /* Moins que l'en-tête */
+    position: relative;
+    z-index: 999;
     text-align: center;
     margin-bottom: 40px;
-    background: rgba(255, 255, 255, 0.8); /* Arrière-plan transparent */
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
-    backdrop-filter: blur(10px); /* Optionnel : Ajoute un effet de flou à l'arrière-plan transparent */
+    backdrop-filter: blur(10px);
 }
 
 .intro h2 {
@@ -112,7 +105,6 @@ main {
     animation: fadeIn 2s ease-out;
 }
 
-/* Styles pour la section des spécialités */
 .specialties {
     display: flex;
     flex-wrap: wrap;
@@ -126,7 +118,7 @@ span {
 }
 
 .specialty {
-    background: rgba(255, 255, 255, 0.8); /* Arrière-plan transparent */
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -155,7 +147,6 @@ span {
     margin-bottom: 10px;
 }
 
-/* Styles améliorés pour les boutons */
 .btn {
     display: inline-block;
     background-color: #007bff;
@@ -195,9 +186,8 @@ span {
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* Styles pour le pied de page */
 footer {
-    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    background-color: rgba(52, 58, 64, 0.8);
     color: #ffffff;
     padding: 20px 0;
     display: flex;
@@ -230,7 +220,7 @@ footer {
 .footer-rights {
     flex: 1;
     text-align: right;
-    margin-right: 20px; /* Ajustez la marge selon les besoins */
+    margin-right: 20px;
     margin-top: 20px;
     font-size: large;
 }
@@ -265,8 +255,6 @@ footer {
     text-shadow: 0 0 10px #ffc107;
 }
 
-/* Assurez-vous que le contenu du pied de page s'affiche correctement */
-/* Conception réactive */
 @media (max-width: 768px) {
     .header-content, .footer-content {
         flex-direction: column;
@@ -283,7 +271,6 @@ footer {
     }
 }
 
-/* Keyframes pour l'animation de texte */
 @keyframes fadeIn {
     from {
         opacity: 0;

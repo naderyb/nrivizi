@@ -1,4 +1,3 @@
-/* Styles généraux */
 body {
     font-family: 'Poppins', sans-serif;
     font-size: large;
@@ -10,24 +9,22 @@ body {
     color: #ffffff;
 }
 
-/* Keyframes pour l'animation de fond */
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Styles pour l'en-tête */
 header {
-    position: fixed; /* Fixe l'en-tête en haut */
-    top: 0; /* Aligne en haut */
-    left: 0; /* Aligne à gauche */
-    width: 100%; /* Largeur totale */
-    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(52, 58, 64, 0.8);
     color: #ffffff;
     padding: 1px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Assure qu'il reste au-dessus des autres contenus */
+    z-index: 1000;
 }
 
 .header-content {
@@ -71,22 +68,20 @@ nav ul li a:hover {
     text-shadow: 0 0 10px #ffc107;
 }
 
-/* Styles pour le contenu principal */
 main {
     padding: 40px 20px;
     max-width: 800px;
-    margin: 80px auto 1px; /* Ajuster la marge supérieure pour tenir compte de la hauteur de l'en-tête */
-    background: rgba(255, 255, 255, 0.8); /* Fond transparent */
+    margin: 80px auto 1px;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Sections */
 .about-intro, .mission, .team {
     margin-bottom: 40px;
     padding: 20px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.8); /* Fond transparent */
+    background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: rgba(0, 0, 0, 0.8);
 }
@@ -96,23 +91,22 @@ main {
     font-size: 2em;
 }
 
-/* Styles pour les membres de l'équipe */
 .team-member {
     display: flex;
     align-items: center;
     gap: 20px;
-    padding: 20px; /* Ajouter du padding autour de la section membre de l'équipe */
-    border-radius: 10px; /* Optionnel : ajouter un rayon de bordure pour un look arrondi */
-    background: rgba(255, 255, 255, 0.9); /* Fond légèrement opaque blanc */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée pour un effet 3D */
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .team-member img {
-    border-radius: 50%; /* Rendre l'image circulaire */
-    width: 120px; /* Ajuster la largeur selon les besoins */
-    height: 120px; /* Ajuster la hauteur selon les besoins */
-    object-fit: cover; /* Assurer que l'image couvre la zone */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optionnel : ajouter une ombre pour faire ressortir l'image */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .team-member h4 {
@@ -122,12 +116,11 @@ main {
 
 .team-member p {
     margin: 0;
-    line-height: 1.5; /* Ajuster l'interligne pour la lisibilité */
+    line-height: 1.5;
 }
 
-/* Styles pour le pied de page */
 footer {
-    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent */
+    background-color: rgba(52, 58, 64, 0.8);
     color: #ffffff;
     padding: 20px 0;
     display: flex;
@@ -160,7 +153,7 @@ footer {
 .footer-rights {
     flex: 1;
     text-align: right;
-    margin-right: 20px; /* Ajuster la marge si nécessaire */
+    margin-right: 20px;
     margin-top: 20px;
     font-size: large;
 }
@@ -196,7 +189,6 @@ footer {
     text-shadow: 0 0 10px #ffc107;
 }
 
-/* Design réactif */
 @media (max-width: 768px) {
     .header-content, .footer-content {
         flex-direction: column;
