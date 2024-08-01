@@ -260,17 +260,31 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+    .header-content img {
+        height: 50px;
+    }
     nav ul {
         flex-direction: column;
+        align-items: center;
     }
     nav ul li {
-        margin: 10px 0;
+        margin-left: 0;
+        margin-bottom: 10px;
     }
     .specialties {
         flex-direction: column;
     }
 }
 
+@media (max-width: 480px) {
+    .header-content img {
+        height: 40px;
+    }
+
+    nav ul li a {
+        font-size: medium;
+    }
+}
 @keyframes fadeIn {
     from {
         opacity: 0;

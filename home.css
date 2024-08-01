@@ -255,14 +255,26 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+
+    .header-content img {
+        height: 50px;
+    }
+
     nav ul {
         flex-direction: column;
+        align-items: center;
     }
+
     nav ul li {
-        margin: 10px 0;
+        margin-left: 0;
+        margin-bottom: 10px;
     }
     .specialties {
         flex-direction: column;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
