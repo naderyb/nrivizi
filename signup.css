@@ -10,7 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #71b7e6, #8121a7, #8d1837);
+    background: linear-gradient(135deg, #c33764, #1d2671, #86a8e7, #7f7fd5);
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
 }
