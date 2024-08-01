@@ -3,15 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>ifagVault</title>
-    <link rel="icon" href="assets/logo-ifagvault.png" type="image/png">
+    <script>
+        function flipForm() {
+            const container = document.querySelector('.login-container');
+            container.classList.toggle('flipped');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            window.location.href = 'select_language.html';
+        }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Select Your Language</h1>
-        <a href="home.html" class="btn">English</a>
-        <a href="Accueil.html" class="btn">Français</a>
+    <div class="login-container">
+        <div class="form-inner">
+            <div class="login front">
+                <h2>Login</h2>
+                <form id="login-form-en" onsubmit="handleLogin(event)">
+                    <div class="username">
+                        <label for="username-en">Username</label>
+                        <input type="text" id="username-en" name="username" required>
+                    </div>
+                    <button type="submit">Login</button>
+                    <div class="additional-options">
+                        <a href="signup.html">Sign Up</a>
+                    </div>
+                    <button type="button" onclick="flipForm()">Switch to French</button>
+                </form>
+            </div>
+            <div class="login back">
+                <h2>Connexion</h2>
+                <form id="login-form-fr" onsubmit="handleLogin(event)">
+                    <div class="username">
+                        <label for="username-fr">Nom d'utilisateur</label>
+                        <input type="text" id="username-fr" name="username" required>
+                    </div>
+                    <button type="submit">Se connecter</button>
+                    <div class="additional-options">
+                        <a href="signup.html">Créer un compte</a>
+                    </div>
+                    <button type="button" onclick="flipForm()">Switch to English</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>
