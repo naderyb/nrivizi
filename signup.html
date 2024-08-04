@@ -13,9 +13,24 @@
             container.classList.toggle('flipped');
         }
 
-        function handleSignup(event) {
+        function showProgress(event, lang) {
             event.preventDefault();
-            window.location.href = 'select_language.html';
+            document.querySelector('.signup-container').style.display = 'none';
+            document.getElementById('progress-container').style.display = 'flex';
+            let progressMessage = document.getElementById('progress-message');
+            progressMessage.textContent = lang === 'en' ? 'Signing up... Please wait.' : 'Inscription... Veuillez patienter.';
+            let progress = document.getElementById('progress');
+            let width = 0;
+            let interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // Redirect to the language selection interface
+                    window.location.href = 'select_language.html';
+                } else {
+                    width++;
+                    progress.style.width = width + '%';
+                }
+            }, 50);
         }
     </script>
 </head>
@@ -24,7 +39,7 @@
         <div class="form-inner">
             <div class="signup front">
                 <h2>Sign Up</h2>
-                <form id="signup-form-en" onsubmit="handleSignup(event)">
+                <form id="signup-form-en" onsubmit="showProgress(event, 'en')">
                     <div class="username">
                         <label for="username-en">Username</label>
                         <input type="text" id="username-en" name="username" required>
@@ -42,7 +57,7 @@
             </div>
             <div class="signup back">
                 <h2>Inscription</h2>
-                <form id="signup-form-fr" onsubmit="handleSignup(event)">
+                <form id="signup-form-fr" onsubmit="showProgress(event, 'fr')">
                     <div class="username">
                         <label for="username-fr">Nom d'utilisateur</label>
                         <input type="text" id="username-fr" name="username" required>
@@ -58,6 +73,12 @@
                     <button type="button" onclick="flipForm()">Switch to English</button>
                 </form>
             </div>
+        </div>
+    </div>
+    <div id="progress-container" style="display: none;">
+        <p id="progress-message"></p>
+        <div id="progress-bar">
+            <div id="progress"></div>
         </div>
     </div>
 </body>

@@ -71,7 +71,7 @@ h2 {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.username{
+.username {
     margin-bottom: 20px;
     text-align: left;
     position: relative;
@@ -84,14 +84,15 @@ label {
     font-size: 14px;
 }
 
-input[type="text"]{
+input[type="text"] {
     width: 100%;
     padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: none;
     border-radius: 5px;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
+    backdrop-filter: blur(10px);
 }
 
 input[type="text"]:focus {
@@ -99,7 +100,6 @@ input[type="text"]:focus {
     background: rgba(255, 255, 255, 0.2);
     outline: none;
 }
-
 
 button {
     width: 100%;
@@ -136,4 +136,66 @@ button:hover {
 .additional-options a:hover {
     color: #e1e1e1;
     text-decoration: underline;
+}
+
+#progress-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    backdrop-filter: blur(15px);
+}
+
+#progress-message {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+#progress-bar {
+    width: 80%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#progress {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    transition: width 0.2s ease;
+    border-radius: 8px;
+    animation: progressAnimation 3s ease-in-out;
+}
+
+@keyframes progressAnimation {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes progressAnimation {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
