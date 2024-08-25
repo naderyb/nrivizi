@@ -256,6 +256,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+    header {
+        position: static;
+    }
+    
     .header-content, .footer-content {
         flex-direction: column;
         align-items: center;
