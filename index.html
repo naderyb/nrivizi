@@ -6,33 +6,8 @@
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/logo-ifagvault.png" type="image/png">
-    <script>
-        function flipForm() {
-            const container = document.querySelector('.login-container');
-            container.classList.toggle('flipped');
-        }
-
-        function showProgress(event, lang) {
-            event.preventDefault();
-            document.querySelector('.login-container').style.display = 'none';
-            document.getElementById('progress-container').style.display = 'flex';
-            let progressMessage = document.getElementById('progress-message');
-            progressMessage.textContent = lang === 'en' ? 'Logging in... Please wait.' : 'Connexion... Veuillez patienter.';
-            let progress = document.getElementById('progress');
-            let width = 0;
-            let interval = setInterval(() => {
-                if (width >= 100) {
-                    clearInterval(interval);
-                    // Redirect to the language selection interface
-                    window.location.href = 'select_language.html';
-                } else {
-                    width++;
-                    progress.style.width = width + '%';
-                }
-            }, 50);
-        }
-    </script>
+    <link rel="icon" type="image/png" alt="ifagVault" href="assets/logo_nrivizi.png">
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="login-container">

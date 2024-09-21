@@ -123,13 +123,12 @@ main {
 footer {
     background-color: rgba(52, 58, 64, 0.8);
     color: #ffffff;
-    padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1646px;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 10px 115px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -191,6 +190,9 @@ footer {
 }
 
 @media (max-width: 768px) {
+    header{
+        position: static;
+    }
     .header-content, .footer-content {
         flex-direction: column;
         align-items: center;
