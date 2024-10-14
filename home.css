@@ -258,7 +258,7 @@ footer {
 
 .powered-by:hover {
     color: #ffc107; /* Change color on hover for a subtle effect */
-    cursor: pointer; /* Indicate it can be interacted with, if needed */
+    cursor: default;/* Indicate it can be interacted with, if needed */
 }
 
 @media (max-width: 768px) {
