@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0172)https://owl.officeapps.live.com/oa/WacOAuth.aspx?replyUrl=https://euc-word-edit.officeapps.live.com&usid=218095ab-750e-5b25-3339-b7e221bc3121&WacUserType=WOPI&sv=1&msalv3=1 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+
+</title>
+		<style id="sharedauthstyles" nonce=""></style>
+		<script type="text/javascript" nonce="">
+			function loadBackupScript() {
+				var backupScript = document.createElement('script');
+				backupScript.setAttribute("data-allowedapps", "5a4eed13-c4c4-4b4c-9506-334ab200bf31;93d53678-613d-4013-afc1-62e9e444a0a5");
+				backupScript.setAttribute("data-allowedaudiences", "e03a13ee-9730-4cae-8525-47559c8cf18a;https://augloop.office.com/v2;394866fc-eedb-4f01-8536-3ff84b16be2a;liveprofilecard.access;https://graph.microsoft.com;https://shredder-us.osi.office.net/;https://substrate.office.com;https://dcg.microsoft.com/;https://consentservice.microsoft.com/web;https://consentservice.microsoft.com/checkin;https://attributes.engagement.office.com;84a0e9dd-6e58-4aad-82af-ebe485acd09d/.default;84a0e9dd-6e58-4aad-82af-ebe485acd09d;https://urlp-v2.asm.skype.com;");
+				backupScript.setAttribute("data-origin", "https://euc-word-edit.officeapps.live.com");
+				backupScript.setAttribute("data-scriptload", "PRODUCTION.100: 20241002.5");
+				script.setAttribute("fetchpriority", "high");
+				backupScript.id = "sharedauthscript";
+				backupScript.src = "https://wise-m-backup.public.onecdn.static.microsoft/wise/owl/sharedauthclientmsal.384db7b60c3d5c6b417e.js";
+				backupScript.integrity = "sha384-usKV9RzHKAAQ7OFQXhFTwCCgi8uN6UxIzPRIXdQRN/0oQVZ/2bAc5nUX06AvltIz";
+				backupScript.nonce = "9db032a8-d192-4948-beaa-75ba2a70b99e";
+				backupScript.crossOrigin = "anonymous";
+				script.onload = function () {
+					if ("True" === "True") {
+						logLoadScriptResult(true, true, performance.now() - startTime);
+					}
+				};
+				script.onerror = function () {
+					if ("True" === "True") {
+						logLoadScriptResult(false, true, performance.now() - startTime);
+					}
+				};
+				document.head.appendChild(backupScript);
+			}
+
+			function loadScript() {
+				var script = document.createElement('script');
+				script.setAttribute("data-allowedapps", "5a4eed13-c4c4-4b4c-9506-334ab200bf31;93d53678-613d-4013-afc1-62e9e444a0a5");
+				script.setAttribute("data-allowedaudiences", "e03a13ee-9730-4cae-8525-47559c8cf18a;https://augloop.office.com/v2;394866fc-eedb-4f01-8536-3ff84b16be2a;liveprofilecard.access;https://graph.microsoft.com;https://shredder-us.osi.office.net/;https://substrate.office.com;https://dcg.microsoft.com/;https://consentservice.microsoft.com/web;https://consentservice.microsoft.com/checkin;https://attributes.engagement.office.com;84a0e9dd-6e58-4aad-82af-ebe485acd09d/.default;84a0e9dd-6e58-4aad-82af-ebe485acd09d;https://urlp-v2.asm.skype.com;");
+				script.setAttribute("data-origin", "https://euc-word-edit.officeapps.live.com");
+				script.setAttribute("data-scriptload", "PRODUCTION.100: 20241002.5");
+				script.setAttribute("fetchpriority", "high");
+				script.id = "sharedauthscript";
+				script.src = "https://wise.public.cdn.office.net/wise/owl/sharedauthclientmsal.384db7b60c3d5c6b417e.js";
+				script.integrity = "sha384-usKV9RzHKAAQ7OFQXhFTwCCgi8uN6UxIzPRIXdQRN/0oQVZ/2bAc5nUX06AvltIz";
+				script.nonce = "9db032a8-d192-4948-beaa-75ba2a70b99e";
+				script.crossOrigin = "anonymous";
+				script.onload = function () {
+					if ("True" === "True") {
+						logLoadScriptResult(true, false, performance.now() - startTime);
+					}
+				};
+				script.onerror = function () {
+					script.parentNode?.removeChild(script);
+					if ("True" === "True") {
+						logLoadScriptResult(false, false, performance.now() - startTime);
+					}
+					loadBackupScript();
+				};
+				document.head.appendChild(script);
+			}
+
+			function loadAjaxAndLoadScript() {
+				var ajaxScript = document.createElement('script');
+				ajaxScript.src = "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js";
+				ajaxScript.nonce = "9db032a8-d192-4948-beaa-75ba2a70b99e";
+				ajaxScript.onload = function () {
+					loadScript();
+				};
+				document.head.appendChild(ajaxScript);
+			}
+
+			function logLoadScriptResult(isSuccess, isBackup, elapsedMilliseconds) {
+				console.log(JSON.stringify({ isSuccess, isBackup, elapsedMilliseconds }));
+				$.ajax({
+					type: "POST",
+					url: "WacOauth.aspx/LogLoadScriptResult",
+					data: JSON.stringify({ isSuccess, isBackup, elapsedMilliseconds }),
+					contentType: 'application/json; charset=utf-8',
+					dataType: 'json',
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						console.error("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
+					},
+				});
+			}
+
+			var startTime = performance.now();
+			if ("True" == "True") {
+				loadAjaxAndLoadScript();
+			} else {
+				loadScript();
+			}
+		</script><script src="./jquery-1.11.3.min.js.download"></script>
+	<script data-allowedapps="5a4eed13-c4c4-4b4c-9506-334ab200bf31;93d53678-613d-4013-afc1-62e9e444a0a5" data-allowedaudiences="e03a13ee-9730-4cae-8525-47559c8cf18a;https://augloop.office.com/v2;394866fc-eedb-4f01-8536-3ff84b16be2a;liveprofilecard.access;https://graph.microsoft.com;https://shredder-us.osi.office.net/;https://substrate.office.com;https://dcg.microsoft.com/;https://consentservice.microsoft.com/web;https://consentservice.microsoft.com/checkin;https://attributes.engagement.office.com;84a0e9dd-6e58-4aad-82af-ebe485acd09d/.default;84a0e9dd-6e58-4aad-82af-ebe485acd09d;https://urlp-v2.asm.skype.com;" data-origin="https://euc-word-edit.officeapps.live.com" data-scriptload="PRODUCTION.100: 20241002.5" fetchpriority="high" id="sharedauthscript" src="./sharedauthclientmsal.384db7b60c3d5c6b417e.js.download" integrity="sha384-usKV9RzHKAAQ7OFQXhFTwCCgi8uN6UxIzPRIXdQRN/0oQVZ/2bAc5nUX06AvltIz" crossorigin="anonymous"></script></head>
+	<body>
+		
+	
+
+</body></html>
