@@ -1,63 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nrivizi is a platform offering various academic resources for students, simplifying access to study materials in Commercial Actions, Marketing, and Computer Science.">
-    <meta property="og:title" content="Nrivizi - Simplify Your Academic Journey">
-    <meta property="og:description" content="Access various academic resources easily with Nrivizi. Explore materials in Commercial Actions, Marketing, Computer Science, and more.">
-    <meta property="og:image" content="assets/logo nexus 1.svg">
-    <meta property="og:url" content="https://nrivizi.netlify.app/">
-    <meta property="og:type" content="website">
-    <meta name="keywords" content="Nrivizi, academic resources,exercices, exercices, actions commerciales, action commerciale, informatique, Marketing, Computer Science, nexus Club, study materials, education">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo nexus 1.svg">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/logo nexus 1.svg">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"></noscript>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Nrivizi is a platform offering various academic resources for students."
+    />
+    <meta property="og:title" content="Nrivizi - Simplify Your Academic Journey" />
+    <meta
+      property="og:description"
+      content="Access various academic resources easily with Nrivizi."
+    />
+    <meta property="og:image" content="assets/logo nexus 1.svg" />
+    <meta property="og:url" content="https://nrivizi.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta
+      name="keywords"
+      content="Nrivizi, academic resources, studies, education"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo nexus 1.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/logo nexus 1.svg" />
     <title>Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" alt="ifagVault" href="assets/logo nexus 1.svg">
-    <script src="script.js"></script>
-</head>
-<body>
-    <div class="login-container">
-        <div class="form-inner">
-            <div class="login front">
-                <h2>Login</h2>
-                <form id="login-form-en" onsubmit="showProgress(event, 'en')">
-                    <div class="username">
-                        <label for="username-en">Username</label>
-                        <input type="text" id="username-en" name="username" required>
-                    </div>
-                    <button type="submit">Login</button>
-                    <div class="additional-options">
-                        <a href="signup.html">Sign Up</a>
-                    </div>
-                    <button type="button" onclick="flipForm()">Changer vers Français        </button>
-                </form>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* A subtle pulse effect for the background */
+      @keyframes bgPulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.95; }
+      }
+      .animate-bgPulse {
+        animation: bgPulse 5s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-[#0D1B2A] to-[#8A2BE2] animate-bgPulse"
+  >
+    <!-- Glassmorphic Login Card -->
+    <div id="login-container" class="w-full max-w-md">
+      <div
+        id="form-inner"
+        class="bg-white/10 backdrop-blur-md border border-white/30 rounded-xl shadow-2xl p-10"
+      >
+        <!-- English Login Form -->
+        <div id="login-en" class="block">
+          <h2 class="text-3xl font-bold text-center text-[#0D1B2A] mb-8">
+            Login
+          </h2>
+          <form
+            id="login-form-en"
+            onsubmit="showProgress(event, 'en')"
+            class="space-y-6"
+          >
+            <div class="username">
+              <label
+                for="username-en"
+                class="block text-lg text-[#0D1B2A] mb-2"
+                >Username</label
+              >
+              <input
+                type="text"
+                id="username-en"
+                name="username"
+                placeholder="Enter your username"
+                required
+                class="w-full px-4 py-3 border border-[#0D1B2A] rounded focus:outline-none focus:ring-2 focus:ring-[#8A2BE2]"
+              />
             </div>
-            <div class="login back">
-                <h2>Connexion</h2>
-                <form id="login-form-fr" onsubmit="showProgress(event, 'fr')">
-                    <div class="username">
-                        <label for="username-fr">Nom d'utilisateur</label>
-                        <input type="text" id="username-fr" name="username" required>
-                    </div>
-                    <button type="submit">Se connecter</button>
-                    <div class="additional-options">
-                        <a href="signup.html">Créer un compte</a>
-                    </div>
-                    <button type="button" onclick="flipForm()">Switch to English</button>
-                </form>
+            <button
+              type="submit"
+              class="w-full py-3 bg-[#8A2BE2] text-white font-semibold rounded hover:bg-[#7F00FF] transition"
+            >
+              Login
+            </button>
+            <div class="text-center">
+              <a
+                href="signup.html"
+                class="text-base text-[#0D1B2A] hover:underline"
+                >Sign Up</a
+              >
             </div>
+            <button
+              type="button"
+              onclick="flipForm()"
+              class="w-full py-3 border border-[#0D1B2A] text-[#0D1B2A] rounded hover:bg-[#E0D6C2] transition"
+            >
+              Changer vers Français
+            </button>
+          </form>
         </div>
-    </div>
-    <div id="progress-container" style="display: none;">
-        <p id="progress-message"></p>
-        <div id="progress-bar">
-            <div id="progress"></div>
+        <!-- French Login Form -->
+        <div id="login-fr" class="hidden">
+          <h2 class="text-3xl font-bold text-center text-[#0D1B2A] mb-8">
+            Connexion
+          </h2>
+          <form
+            id="login-form-fr"
+            onsubmit="showProgress(event, 'fr')"
+            class="space-y-6"
+          >
+            <div class="username">
+              <label
+                for="username-fr"
+                class="block text-lg text-[#0D1B2A] mb-2"
+                >Nom d'utilisateur</label
+              >
+              <input
+                type="text"
+                id="username-fr"
+                name="username"
+                placeholder="Entrez votre nom d'utilisateur"
+                required
+                class="w-full px-4 py-3 border border-[#0D2A] rounded focus:outline-none focus:ring-2 focus:ring-[#8A2BE2]"
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full py-3 bg-[#8A2BE2] text-white font-semibold rounded hover:bg-[#7F00FF] transition"
+            >
+              Se connecter
+            </button>
+            <div class="text-center">
+              <a
+                href="signup.html"
+                class="text-base text-[#ffffff] hover:underline"
+                >Créer un compte</a
+              >
+            </div>
+            <button
+              type="button"
+              onclick="flipForm()"
+              class="w-full py-3 border border-[#0D1B2A] text-[#0D1B2A] rounded hover:bg-[#E0D6C2] transition"
+            >
+              Switch to English
+            </button>
+          </form>
         </div>
+      </div>
     </div>
-</body>
+
+    <!-- Progress Overlay with Circular Progress Indicator -->
+    <div
+      id="progress-container"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden"
+    >
+      <div class="relative">
+        <!-- SVG Circular Progress -->
+        <svg
+          id="progress-svg"
+          class="w-24 h-24 transform -rotate-90"
+          viewBox="0 0 120 120"
+        >
+          <!-- Background Circle -->
+          <circle
+            cx="60"
+            cy="60"
+            r="50"
+            stroke="#F3EDE5"
+            stroke-width="10"
+            fill="none"
+            opacity="0.3"
+          />
+          <!-- Animated Progress Circle -->
+          <circle
+            id="progress-circle"
+            cx="60"
+            cy="60"
+            r="50"
+            stroke="#8A2BE2"
+            stroke-width="10"
+            fill="none"
+            stroke-dasharray="314"
+            stroke-dashoffset="314"
+            stroke-linecap="round"
+          />
+        </svg>
+        <!-- Percentage Text -->
+        <div
+          id="progress-text"
+          class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold"
+        >
+          0%
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Toggle between English and French forms
+      function flipForm() {
+        const enForm = document.getElementById("login-en");
+        const frForm = document.getElementById("login-fr");
+        enForm.classList.toggle("hidden");
+        frForm.classList.toggle("hidden");
+      }
+
+      // Circular progress function using SVG
+      function showProgress(event, lang) {
+        event.preventDefault();
+        const progressContainer = document.getElementById("progress-container");
+        const progressCircle = document.getElementById("progress-circle");
+        const progressText = document.getElementById("progress-text");
+        progressContainer.classList.remove("hidden");
+
+        let progress = 0;
+        const circumference = 314; // ~2 * Math.PI * 50
+        const interval = setInterval(() => {
+          progress++;
+          if (progress > 100) progress = 100;
+          const offset = circumference * (1 - progress / 100);
+          progressCircle.style.strokeDashoffset = offset;
+          progressText.textContent = progress + "%";
+          if (progress >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+              progressContainer.classList.add("hidden");
+              // Reset for next use
+              progressCircle.style.strokeDashoffset = circumference;
+              progressText.textContent = "0%";
+              alert(lang === "en" ? "Logged in!" : "Connecté!");
+            }, 500);
+          }
+        }, 20);
+      }
+    </script>
+  </body>
 </html>
