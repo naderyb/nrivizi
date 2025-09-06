@@ -41,9 +41,18 @@ export default function Home() {
       color: "from-blue-500 to-blue-600",
       bgColor: "bg-blue-50",
       buttons: [
-        { name: "LAC1", href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/EhuySCHiiqNLtkuBxGswF7sBUQG9-jiQVJBJoM4KZWGg6Q?e=tR26VO" },
-        { name: "LAC2", href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/ElE6px4MYJdCkUrtIMCtXEgB8OZRWVbaDrRtMHIC7KkvhQ?e=Vvg9GQ" },
-        { name: "LAC3", href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/EjHDE50qHRZKmuyOq27eSAcBpTZ0E1vFdnAqiyZvwRcTRQ?e=FVs5u7" },
+        {
+          name: "LAC1",
+          href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/EhuySCHiiqNLtkuBxGswF7sBUQG9-jiQVJBJoM4KZWGg6Q?e=tR26VO",
+        },
+        {
+          name: "LAC2",
+          href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/ElE6px4MYJdCkUrtIMCtXEgB8OZRWVbaDrRtMHIC7KkvhQ?e=Vvg9GQ",
+        },
+        {
+          name: "LAC3",
+          href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/EjHDE50qHRZKmuyOq27eSAcBpTZ0E1vFdnAqiyZvwRcTRQ?e=FVs5u7",
+        },
       ],
     },
     {
@@ -52,8 +61,14 @@ export default function Home() {
       color: "from-green-500 to-green-600",
       bgColor: "bg-green-50",
       buttons: [
-        { name: "LMI1", href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/Ej7z3cFUlQxHsHMFcTfPDC8BQKQhfbrKatwOnjlqH8W2ng?e=wozqx4" },
-        { name: "LMI2", href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/Em4TQW_J6y5HuR_fS1wnffoBFz_5Q_XHRY24Y54Zk7oSQw?e=lxsb1t" },
+        {
+          name: "LMI1",
+          href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/Ej7z3cFUlQxHsHMFcTfPDC8BQKQhfbrKatwOnjlqH8W2ng?e=wozqx4",
+        },
+        {
+          name: "LMI2",
+          href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/Em4TQW_J6y5HuR_fS1wnffoBFz_5Q_XHRY24Y54Zk7oSQw?e=lxsb1t",
+        },
       ],
     },
     {
@@ -61,16 +76,85 @@ export default function Home() {
       icon: "📊",
       color: "from-purple-500 to-purple-600",
       bgColor: "bg-purple-50",
-      buttons: [{ name: "LCF1", href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/EimXHyOky1tOkihLF4dl89QBijqrkmdw1MWrdqdIrahiKA?e=td5Udh" }],
+      buttons: [
+        {
+          name: "LCF1",
+          href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/EimXHyOky1tOkihLF4dl89QBijqrkmdw1MWrdqdIrahiKA?e=td5Udh",
+        },
+      ],
     },
     {
       title: "Extra et Divers",
       icon: "📚",
       color: "from-orange-500 to-orange-600",
       bgColor: "bg-orange-50",
-      buttons: [{ name: "Livre", href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/El9M2AgtmydEqlZhbjLNqLcBO4z7INvPJ_EJpTNH1u19fA?e=HZ0UoE" }],
+      buttons: [
+        {
+          name: "Livre",
+          href: "https://insagbs-my.sharepoint.com/:f:/g/personal/nexusclub_insag_edu_dz/El9M2AgtmydEqlZhbjLNqLcBO4z7INvPJ_EJpTNH1u19fA?e=HZ0UoE",
+        },
+      ],
     },
   ];
+
+  // Motivational quotes that change daily
+  const quotes = [
+    {
+      text: "Le succès, c'est d'aller d'échec en échec sans perdre son enthousiasme.",
+      author: "Winston Churchill",
+    },
+    {
+      text: "La seule façon de faire du bon travail, c'est d'aimer ce que vous faites.",
+      author: "Steve Jobs",
+    },
+    {
+      text: "L'éducation est l'arme la plus puissante pour changer le monde.",
+      author: "Nelson Mandela",
+    },
+    {
+      text: "Il n'y a qu'une façon d'apprendre, c'est par l'action.",
+      author: "Paulo Coelho",
+    },
+    {
+      text: "Votre limitation, c'est seulement votre imagination.",
+      author: "Anonyme",
+    },
+    {
+      text: "Les grandes choses ne sont jamais faites par une seule personne.",
+      author: "Steve Jobs",
+    },
+    {
+      text: "La discipline est le pont entre vos objectifs et vos accomplissements.",
+      author: "Jim Rohn",
+    },
+    {
+      text: "Chaque expert était autrefois un débutant.",
+      author: "Helen Hayes",
+    },
+    {
+      text: "L'avenir appartient à ceux qui croient en la beauté de leurs rêves.",
+      author: "Eleanor Roosevelt",
+    },
+    {
+      text: "Ne remettez pas à demain ce que vous pouvez faire aujourd'hui.",
+      author: "Benjamin Franklin",
+    },
+  ];
+
+  // Get daily quote based on current date
+  const getDailyQuote = () => {
+    const today = new Date();
+    const dayOfYear = Math.floor(
+      (today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) /
+        1000 /
+        60 /
+        60 /
+        24
+    );
+    return quotes[dayOfYear % quotes.length];
+  };
+
+  const dailyQuote = getDailyQuote();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-teal-100 relative overflow-hidden">
@@ -86,33 +170,36 @@ export default function Home() {
         {/* Navbar */}
         <nav className="bg-white/80 backdrop-blur-md shadow-lg border-b border-white/20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-14">
+            <div className="flex justify-between items-center h-14 sm:h-16">
               {/* Right side - nrivizi logo */}
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold text-sm">N</span>
                 </div>
-                <h1 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <h1 className="text-lg sm:text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   nrivizi
                 </h1>
               </div>
 
               {/* Left side - user info and logout */}
-              <div className="flex items-center space-x-3">
-                <div className="flex items-center space-x-2">
-                  <div className="w-7 h-7 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <div className="flex items-center space-x-1 sm:space-x-2 min-w-0 flex-1">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs font-semibold">
                       {session.user?.name?.charAt(0)?.toUpperCase()}
                     </span>
                   </div>
-                  <span className="text-gray-700 text-sm font-medium">
+                  <span
+                    className="text-gray-700 text-xs sm:text-sm font-medium truncate max-w-[120px] sm:max-w-[200px]"
+                    title={session.user?.name || ""}
+                  >
                     {session.user?.name}
                   </span>
                 </div>
                 <button
                   onClick={handleLogout}
                   disabled={loading}
-                  className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-md transition-colors duration-200 text-xs font-medium disabled:opacity-50"
+                  className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md transition-colors duration-200 text-xs font-medium disabled:opacity-50 flex-shrink-0"
                 >
                   {loading ? "..." : "Déconnexion"}
                 </button>
@@ -122,9 +209,9 @@ export default function Home() {
         </nav>
 
         {/* Main Content */}
-        <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+        <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
               Salut {session.user?.name} 👋
             </h2>
             <p className="text-gray-500 text-sm">
@@ -133,20 +220,20 @@ export default function Home() {
           </div>
 
           {/* Sections Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-12">
             {sections.map((section, index) => (
               <div
                 key={index}
-                className={`${section.bgColor} rounded-xl p-5 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-200 backdrop-blur-sm bg-white/60`}
+                className={`${section.bgColor} rounded-xl p-4 sm:p-5 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-200 backdrop-blur-sm bg-white/60`}
               >
                 {/* Section Header */}
-                <div className="flex items-center space-x-3 mb-4">
+                <div className="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
                   <div
-                    className={`w-10 h-10 bg-gradient-to-r ${section.color} rounded-lg flex items-center justify-center shadow-md`}
+                    className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r ${section.color} rounded-lg flex items-center justify-center shadow-md`}
                   >
-                    <span className="text-lg">{section.icon}</span>
+                    <span className="text-base sm:text-lg">{section.icon}</span>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-800">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800">
                     {section.title}
                   </h3>
                 </div>
@@ -157,7 +244,7 @@ export default function Home() {
                     <a
                       key={buttonIndex}
                       href={button.href}
-                      className={`block w-full bg-gradient-to-r ${section.color} text-white py-2.5 px-4 rounded-lg hover:shadow-lg transition-all duration-200 text-sm font-medium text-center transform hover:scale-105`}
+                      className={`block w-full bg-gradient-to-r ${section.color} text-white py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg hover:shadow-lg transition-all duration-200 text-sm font-medium text-center transform hover:scale-105`}
                     >
                       {button.name}
                     </a>
@@ -169,22 +256,24 @@ export default function Home() {
         </main>
 
         {/* Footer */}
-        <footer className="bg-white/80 backdrop-blur-md py-8 mt-12 border-t border-white/20">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <footer className="bg-white/80 backdrop-blur-md py-6 sm:py-8 mt-8 sm:mt-12 border-t border-white/20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               {/* Club Info */}
-              <div className="text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start space-x-2 mb-4">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-sm">N</span>
+              <div className="text-center lg:text-left">
+                <div className="flex items-center justify-center lg:justify-start space-x-2 mb-3 sm:mb-4">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-xs sm:text-sm">
+                      N
+                    </span>
                   </div>
-                  <span className="text-gray-800 font-semibold text-lg">
+                  <span className="text-gray-800 font-semibold text-base sm:text-lg">
                     nrivizi
                   </span>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">
+                <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 max-w-xs mx-auto lg:mx-0">
                   Club étudiant dédié à l&apos;excellence académique et au
-                  développement professionnel. Nous accompagnons nos membres
+                  développement professionnel. Nous accompagnons les étudiants
                   vers la réussite dans leurs études et leur carrière.
                 </p>
                 <div className="flex justify-center md:justify-start space-x-3">
@@ -200,72 +289,41 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Contact */}
-              <div className="text-center md:text-left">
-                <h4 className="text-gray-800 font-semibold mb-4">Contact</h4>
-                <div className="space-y-3 text-gray-600 text-sm">
-                  <p className="flex items-center justify-center md:justify-start space-x-2">
-                    <span>📧</span>
-                    <span>contact@nrivizi.club</span>
-                  </p>
-                  <p className="flex items-center justify-center md:justify-start space-x-2">
-                    <span>📱</span>
-                    <span>+33 1 23 45 67 89</span>
-                  </p>
-                  <p className="flex items-center justify-center md:justify-start space-x-2">
-                    <span>📍</span>
-                    <span>Campus Universitaire, Bât. A</span>
-                  </p>
-                  <p className="flex items-center justify-center md:justify-start space-x-2">
-                    <span>🕒</span>
-                    <span>Lun-Ven: 9h-18h</span>
-                  </p>
+              {/* Daily Motivational Quote - Middle Section */}
+              <div className="text-center">
+                <h4 className="text-gray-800 font-semibold mb-4">
+                  💭 Citation du jour
+                </h4>
+                <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-6 text-white shadow-lg">
+                  <div className="text-lg font-medium italic mb-3 leading-relaxed">
+                    &ldquo;{dailyQuote.text}&rdquo;
+                  </div>
+                  <div className="text-sm opacity-90 font-semibold">
+                    — {dailyQuote.author}
+                  </div>
+                  <div className="mt-3 text-xs opacity-75">
+                    ✨ Se renouvelle chaque jour
+                  </div>
                 </div>
               </div>
 
-              {/* Quick Links */}
-              <div className="text-center md:text-left">
-                <h4 className="text-gray-800 font-semibold mb-4">
-                  Liens Rapides
-                </h4>
-                <ul className="space-y-3 text-gray-600 text-sm">
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-purple-600 transition-colors flex items-center justify-center md:justify-start space-x-2"
-                    >
-                      <span>🎯</span>
-                      <span>Nos Objectifs</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-purple-600 transition-colors flex items-center justify-center md:justify-start space-x-2"
-                    >
-                      <span>🏆</span>
-                      <span>Réussites</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-purple-600 transition-colors flex items-center justify-center md:justify-start space-x-2"
-                    >
-                      <span>📅</span>
-                      <span>Événements</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-purple-600 transition-colors flex items-center justify-center md:justify-start space-x-2"
-                    >
-                      <span>💡</span>
-                      <span>Ressources</span>
-                    </a>
-                  </li>
-                </ul>
+              {/* Contact - Right Section */}
+              <div className="text-center md:text-right">
+                <h4 className="text-gray-800 font-semibold mb-4">Contact</h4>
+                <div className="space-y-3 text-gray-600 text-sm">
+                  <p className="flex items-center justify-center md:justify-end space-x-2">
+                    <span>📧</span>
+                    <span>nexusclub@insag.edu.dz</span>
+                  </p>
+                  <p className="flex items-center justify-center md:justify-end space-x-2">
+                    <span>�</span>
+                    <span>Campus IFAG, Hydra, Alger</span>
+                  </p>
+                  <p className="flex items-center justify-center md:justify-end space-x-2">
+                    <span>�</span>
+                    <span>Lun-Ven: 8h-17h</span>
+                  </p>
+                </div>
               </div>
             </div>
 
