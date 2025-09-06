@@ -79,63 +79,65 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="space-y-8">
-      <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 shadow-lg border border-gray-100 text-white">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-              <span className="text-3xl">👑</span>
+    <div className="space-y-6 md:space-y-8">
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg border border-gray-100 text-white">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+          <div className="flex items-center space-x-3 md:space-x-4">
+            <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+              <span className="text-2xl md:text-3xl">👑</span>
             </div>
             <div>
-              <h1 className="text-3xl font-bold">
+              <h1 className="text-xl md:text-3xl font-bold">
                 Bonjour, {session?.user?.name}!
               </h1>
-              <p className="text-blue-100 mt-1">
+              <p className="text-blue-100 mt-1 text-sm md:text-base">
                 Bienvenue dans le panneau d&apos;administration de nrivizi
               </p>
             </div>
           </div>
-          <div className="text-right">
-            <p className="text-blue-100 text-sm">Dernière connexion</p>
-            <p className="text-white font-semibold">
+          <div className="text-left md:text-right">
+            <p className="text-blue-100 text-xs md:text-sm">
+              Dernière connexion
+            </p>
+            <p className="text-white font-semibold text-sm md:text-base">
               {new Date().toLocaleDateString("fr-FR")}
             </p>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {statsCards.map((card, index) => (
           <div
             key={index}
-            className={`${card.bgColor} rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group`}
+            className={`${card.bgColor} rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group`}
           >
             <div className="flex items-center justify-between">
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-gray-600 text-sm font-medium">
+                  <p className="text-gray-600 text-xs md:text-sm font-medium truncate pr-2">
                     {card.title}
                   </p>
                   <span
-                    className={`text-xs font-semibold ${card.changeColor} bg-white px-2 py-1 rounded-full`}
+                    className={`text-xs font-semibold ${card.changeColor} bg-white px-1.5 md:px-2 py-1 rounded-full flex-shrink-0`}
                   >
                     {card.change}
                   </span>
                 </div>
                 <p
-                  className={`text-3xl font-bold ${card.textColor} group-hover:scale-105 transition-transform`}
+                  className={`text-xl md:text-3xl font-bold ${card.textColor} group-hover:scale-105 transition-transform`}
                 >
                   {loading ? (
-                    <div className="animate-pulse bg-gray-300 h-8 w-16 rounded"></div>
+                    <div className="animate-pulse bg-gray-300 h-6 md:h-8 w-12 md:w-16 rounded"></div>
                   ) : (
                     card.value
                   )}
                 </p>
               </div>
               <div
-                className={`w-12 h-12 bg-gradient-to-r ${card.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}
+                className={`w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r ${card.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform flex-shrink-0 ml-2`}
               >
-                <span className="text-2xl">{card.icon}</span>
+                <span className="text-lg md:text-2xl">{card.icon}</span>
               </div>
             </div>
           </div>
@@ -145,13 +147,13 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8"></div>
 
       {/* Performance Metrics */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-          <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 md:gap-8">
+        <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+          <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
             <span className="mr-2">📈</span>
             Métriques de Performance
           </h3>
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             <ProgressBar
               label="Engagement Utilisateurs"
               value={stats.recentLogins}
@@ -180,42 +182,50 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-        <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
+      <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
           <span className="mr-2">🖥️</span>
           État du Système
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-green-50 rounded-xl p-4 text-center">
-            <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
-              <span className="text-white text-lg">✓</span>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+          <div className="bg-green-50 rounded-lg md:rounded-xl p-3 md:p-4 text-center">
+            <div className="w-8 h-8 md:w-12 md:h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
+              <span className="text-white text-sm md:text-lg">✓</span>
             </div>
-            <p className="font-semibold text-green-800">Base de Données</p>
-            <p className="text-sm text-green-600">Opérationnelle</p>
+            <p className="font-semibold text-green-800 text-xs md:text-sm">
+              Base de Données
+            </p>
+            <p className="text-xs md:text-sm text-green-600">Opérationnelle</p>
           </div>
 
-          <div className="bg-green-50 rounded-xl p-4 text-center">
-            <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
-              <span className="text-white text-lg">✓</span>
+          <div className="bg-green-50 rounded-lg md:rounded-xl p-3 md:p-4 text-center">
+            <div className="w-8 h-8 md:w-12 md:h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
+              <span className="text-white text-sm md:text-lg">✓</span>
             </div>
-            <p className="font-semibold text-green-800">API</p>
-            <p className="text-sm text-green-600">Fonctionnelle</p>
+            <p className="font-semibold text-green-800 text-xs md:text-sm">
+              API
+            </p>
+            <p className="text-xs md:text-sm text-green-600">Fonctionnelle</p>
           </div>
 
-          <div className="bg-yellow-50 rounded-xl p-4 text-center">
-            <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-2">
-              <span className="text-white text-lg">!</span>
+          <div className="bg-yellow-50 rounded-lg md:rounded-xl p-3 md:p-4 text-center">
+            <div className="w-8 h-8 md:w-12 md:h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-2">
+              <span className="text-white text-sm md:text-lg">!</span>
             </div>
-            <p className="font-semibold text-yellow-800">Stockage</p>
-            <p className="text-sm text-yellow-600">78% utilisé</p>
+            <p className="font-semibold text-yellow-800 text-xs md:text-sm">
+              Stockage
+            </p>
+            <p className="text-xs md:text-sm text-yellow-600">78% utilisé</p>
           </div>
 
-          <div className="bg-green-50 rounded-xl p-4 text-center">
-            <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
-              <span className="text-white text-lg">✓</span>
+          <div className="bg-green-50 rounded-lg md:rounded-xl p-3 md:p-4 text-center">
+            <div className="w-8 h-8 md:w-12 md:h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
+              <span className="text-white text-sm md:text-lg">✓</span>
             </div>
-            <p className="font-semibold text-green-800">Sécurité</p>
-            <p className="text-sm text-green-600">Sécurisé</p>
+            <p className="font-semibold text-green-800 text-xs md:text-sm">
+              Sécurité
+            </p>
+            <p className="text-xs md:text-sm text-green-600">Sécurisé</p>
           </div>
         </div>
       </div>
