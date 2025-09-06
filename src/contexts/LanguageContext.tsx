@@ -86,11 +86,11 @@ export function useTranslation() {
 
   const t = (key: string, fallback?: string): string => {
     const keys = key.split(".");
-    let value = messages;
+    let value: unknown = messages;
 
     for (const k of keys) {
       if (value && typeof value === "object" && k in value) {
-        value = value[k];
+        value = (value as Record<string, unknown>)[k];
       } else {
         return fallback || key;
       }
