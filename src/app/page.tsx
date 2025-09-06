@@ -316,12 +316,8 @@ export default function Home() {
                     <span>nexusclub@insag.edu.dz</span>
                   </p>
                   <p className="flex items-center justify-center md:justify-end space-x-2">
-                    <span>�</span>
+                    <span></span>
                     <span>Campus IFAG, Hydra, Alger</span>
-                  </p>
-                  <p className="flex items-center justify-center md:justify-end space-x-2">
-                    <span>�</span>
-                    <span>Lun-Ven: 8h-17h</span>
                   </p>
                 </div>
               </div>
