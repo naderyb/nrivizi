@@ -146,7 +146,14 @@ function LoginContent() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="bg-white/80 backdrop-blur-xl border border-white/40 rounded-2xl p-8 shadow-xl shadow-slate-200/50">
+        <div
+          className="bg-white/90 safari-blur border border-white/40 rounded-2xl p-8 shadow-xl shadow-slate-200/50"
+          style={{
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            backgroundColor: "rgba(255, 255, 255, 0.9)",
+          }}
+        >
           {/* Header - with different icon and color scheme */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl mb-6 shadow-lg shadow-emerald-500/25 relative group overflow-hidden">
