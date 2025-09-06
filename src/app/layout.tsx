@@ -1,5 +1,6 @@
 import "./globals.css";
 import Providers from "./providers";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export const metadata = {
   title: "nrivizi",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <LanguageProvider>
+          <Providers>{children}</Providers>
+        </LanguageProvider>
       </body>
     </html>
   );
