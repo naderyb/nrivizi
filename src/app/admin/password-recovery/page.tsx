@@ -102,18 +102,18 @@ export default function PasswordRecovery() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-        <div className="flex items-center space-x-4">
-          <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center">
-            <span className="text-2xl">🔑</span>
+      <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg border border-gray-100">
+        <div className="flex items-center space-x-3 md:space-x-4">
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center">
+            <span className="text-xl md:text-2xl">🔑</span>
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">
+            <h1 className="text-xl md:text-2xl font-bold text-gray-800">
               Récupération de mots de passe
             </h1>
-            <p className="text-gray-600">
+            <p className="text-sm md:text-base text-gray-600">
               Gérez les demandes de récupération de mot de passe des étudiants
             </p>
           </div>
@@ -121,47 +121,49 @@ export default function PasswordRecovery() {
       </div>
 
       {/* Statistics */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-          <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
-              <span className="text-yellow-600 text-xl">⏳</span>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+        <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+          <div className="flex items-center space-x-3 md:space-x-4">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+              <span className="text-yellow-600 text-lg md:text-xl">⏳</span>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-800">
+              <h3 className="text-sm md:text-lg font-semibold text-gray-800">
                 En attente
               </h3>
-              <p className="text-2xl font-bold text-yellow-600">
+              <p className="text-xl md:text-2xl font-bold text-yellow-600">
                 {requests.filter((r) => r.status === "pending").length}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-          <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-              <span className="text-green-600 text-xl">✅</span>
+        <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+          <div className="flex items-center space-x-3 md:space-x-4">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-lg flex items-center justify-center">
+              <span className="text-green-600 text-lg md:text-xl">✅</span>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-800">
+              <h3 className="text-sm md:text-lg font-semibold text-gray-800">
                 Approuvées
               </h3>
-              <p className="text-2xl font-bold text-green-600">
+              <p className="text-xl md:text-2xl font-bold text-green-600">
                 {requests.filter((r) => r.status === "resolved").length}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-          <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-              <span className="text-red-600 text-xl">❌</span>
+        <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+          <div className="flex items-center space-x-3 md:space-x-4">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-red-100 rounded-lg flex items-center justify-center">
+              <span className="text-red-600 text-lg md:text-xl">❌</span>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-800">Rejetées</h3>
-              <p className="text-2xl font-bold text-red-600">
+              <h3 className="text-sm md:text-lg font-semibold text-gray-800">
+                Rejetées
+              </h3>
+              <p className="text-xl md:text-2xl font-bold text-red-600">
                 {requests.filter((r) => r.status === "rejected").length}
               </p>
             </div>
@@ -170,38 +172,40 @@ export default function PasswordRecovery() {
       </div>
 
       {/* Requests List */}
-      <div className="bg-white rounded-2xl shadow-lg border border-gray-100">
-        <div className="p-6 border-b border-gray-100">
-          <h2 className="text-xl font-semibold text-gray-800">
+      <div className="bg-white rounded-xl md:rounded-2xl shadow-lg border border-gray-100">
+        <div className="p-4 md:p-6 border-b border-gray-100">
+          <h2 className="text-lg md:text-xl font-semibold text-gray-800">
             Demandes de récupération
           </h2>
         </div>
 
         <div className="divide-y divide-gray-100">
           {requests.length === 0 ? (
-            <div className="p-8 text-center text-gray-500">
+            <div className="p-6 md:p-8 text-center text-gray-500">
               Aucune demande de récupération trouvée
             </div>
           ) : (
             requests.map((request) => (
               <div
                 key={request.id}
-                className="p-6 hover:bg-gray-50 transition-colors"
+                className="p-4 md:p-6 hover:bg-gray-50 transition-colors"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-semibold">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center space-x-3 md:space-x-4">
+                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-semibold flex-shrink-0">
                         {request.full_name.charAt(0).toUpperCase()}
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-800">
+                      <div className="min-w-0 flex-1">
+                        <h3 className="font-semibold text-gray-800 truncate">
                           {request.full_name}
                         </h3>
-                        <p className="text-sm text-gray-600">{request.email}</p>
+                        <p className="text-sm text-gray-600 truncate">
+                          {request.email}
+                        </p>
                       </div>
                     </div>
-                    <div className="mt-3 flex items-center space-x-4">
+                    <div className="mt-3 flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
                       <span className="text-sm text-gray-500">
                         Demandé le:{" "}
                         {new Date(request.requested_at).toLocaleDateString(
@@ -209,7 +213,7 @@ export default function PasswordRecovery() {
                         )}
                       </span>
                       <span
-                        className={`px-2 py-1 rounded-full text-xs font-medium ${
+                        className={`px-2 py-1 rounded-full text-xs font-medium inline-block w-fit ${
                           request.status === "pending"
                             ? "bg-yellow-100 text-yellow-800"
                             : request.status === "resolved"
@@ -226,18 +230,18 @@ export default function PasswordRecovery() {
                     </div>
                   </div>
 
-                  <div className="flex space-x-2">
+                  <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 lg:flex-shrink-0">
                     {request.status === "pending" && (
                       <button
                         onClick={() => openModal(request)}
-                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                        className="bg-blue-600 text-white px-3 md:px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
                       >
                         Traiter
                       </button>
                     )}
                     <button
                       onClick={() => openModal(request)}
-                      className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
+                      className="bg-gray-200 text-gray-800 px-3 md:px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm font-medium"
                     >
                       Voir détails
                     </button>
@@ -251,9 +255,9 @@ export default function PasswordRecovery() {
 
       {/* Request Modal */}
       {showModal && selectedRequest && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-8 max-w-lg w-full mx-4">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 max-w-lg w-full">
+            <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4">
               Demande de {selectedRequest.full_name}
             </h3>
 
@@ -317,7 +321,7 @@ export default function PasswordRecovery() {
                 />
               </div>
 
-              <div className="flex space-x-3">
+              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                 {selectedRequest.status === "pending" ? (
                   <>
                     <button
@@ -328,7 +332,7 @@ export default function PasswordRecovery() {
                         actionLoading === selectedRequest.id ||
                         !newPassword.trim()
                       }
-                      className="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
+                      className="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 text-sm font-medium"
                     >
                       {actionLoading === selectedRequest.id
                         ? "Traitement..."
@@ -339,7 +343,7 @@ export default function PasswordRecovery() {
                         handleRequest(selectedRequest.id, "reject")
                       }
                       disabled={actionLoading === selectedRequest.id}
-                      className="flex-1 bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"
+                      className="flex-1 bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 text-sm font-medium"
                     >
                       {actionLoading === selectedRequest.id
                         ? "Traitement..."
@@ -353,7 +357,7 @@ export default function PasswordRecovery() {
                       setNewPassword("");
                       setAdminNotes("");
                     }}
-                    className="w-full bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors"
+                    className="w-full bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors text-sm font-medium"
                   >
                     Fermer
                   </button>
