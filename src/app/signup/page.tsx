@@ -2,8 +2,11 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function SignupPage() {
+  const { t } = useTranslation();
   const cardRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -25,10 +28,9 @@ export default function SignupPage() {
         const centerX = container.left + container.width / 2;
         const centerY = container.top + container.height / 2;
 
-        const deltaX = (e.clientX - centerX) * 0.01; // Reduced sensitivity for subtlety
+        const deltaX = (e.clientX - centerX) * 0.01;
         const deltaY = (e.clientY - centerY) * 0.01;
 
-        // Apply transform to the card
         cardRef.current.style.transform = `translate(${deltaX}px, ${deltaY}px) rotateX(${
           -deltaY * 0.5
         }deg) rotateY(${deltaX * 0.5}deg)`;
@@ -40,7 +42,10 @@ export default function SignupPage() {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,40 +54,34 @@ export default function SignupPage() {
     setLoading(true);
 
     if (!form.fullName || !form.email || !form.password) {
-      setError("Tous les champs sont requis");
+      setError(t("errors.required"));
       setLoading(false);
       return;
     }
 
     if (form.password.length < 8) {
-      setError("Le mot de passe doit contenir au moins 8 caractères");
+      setError(t("errors.passwordLength"));
       setLoading(false);
       return;
     }
 
     try {
-      const res = await fetch("/api/auth/signup", {
+      const response = await fetch("/api/auth/signup", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName: form.fullName,
-          email: form.email,
-          password: form.password,
-        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
       });
 
-      const data = await res.json();
-
-      if (res.ok) {
-        router.push(
-          "/login?message=Compte créé avec succès ! Notez bien vos identifiants : " +
-            form.fullName
-        );
+      if (response.ok) {
+        router.push("/login?message=signup-success");
       } else {
-        setError(data.error || "Une erreur s'est produite");
+        const data = await response.json();
+        setError(data.error || t("errors.signupFailed"));
       }
     } catch {
-      setError("Erreur réseau. Veuillez réessayer.");
+      setError(t("errors.networkError"));
     } finally {
       setLoading(false);
     }
@@ -94,6 +93,11 @@ export default function SignupPage() {
       className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 flex items-center justify-center p-4 relative overflow-hidden"
       style={{ perspective: "1000px" }}
     >
+      {/* Language Switcher */}
+      <div className="absolute top-4 right-4 z-10">
+        <LanguageSwitcher />
+      </div>
+
       {/* Subtle animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-100/40 to-indigo-100/40 rounded-full blur-3xl animate-pulse"></div>
@@ -107,14 +111,10 @@ export default function SignupPage() {
           <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
         </svg>
       </div>
-      <div className="absolute top-32 right-20 text-indigo-300/40 animate-float delay-500">
+
+      <div className="absolute bottom-16 right-20 text-indigo-300/40 animate-float delay-500">
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
-        </svg>
-      </div>
-      <div className="absolute bottom-32 right-32 text-purple-300/40 animate-float delay-1000">
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
         </svg>
       </div>
 
@@ -135,10 +135,9 @@ export default function SignupPage() {
         >
           {/* Header */}
           <div className="text-center mb-6">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl mb-4 shadow-lg shadow-blue-500/25 relative group overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000"></div>
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg">
               <svg
-                className="w-6 h-6 text-white relative z-10"
+                className="w-8 h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -152,32 +151,38 @@ export default function SignupPage() {
               </svg>
             </div>
             <h2 className="text-2xl font-bold text-slate-800 mb-1">
-              Rejoignez nrivizi
+              {t("auth.signupTitle")}
             </h2>
-            <p className="text-slate-600 text-sm">
-              Votre parcours académique commence ici
-            </p>
+            <p className="text-slate-600 text-sm">{t("auth.signupSubtitle")}</p>
             <div className="flex items-center justify-center gap-3 mt-3 text-xs text-slate-500">
               <span className="flex items-center gap-1">
                 <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                Informatique
+                {t("common.computerScience")}
               </span>
               <span className="flex items-center gap-1">
                 <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                Marketing
+                {t("common.marketing")}
               </span>
               <span className="flex items-center gap-1">
                 <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                Finance
+                {t("common.finance")}
               </span>
             </div>
           </div>
 
+          {/* Error Message */}
+          {error && (
+            <div className="mb-4 p-3 bg-red-100 border border-red-300 text-red-700 rounded-lg text-sm">
+              {error}
+            </div>
+          )}
+
+          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Full Name */}
             <div className="group">
               <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Nom Complet
+                {t("auth.fullName")}
               </label>
               <div className="relative">
                 <input
@@ -186,8 +191,8 @@ export default function SignupPage() {
                   value={form.fullName}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2.5 bg-white/60 border border-slate-200 rounded-xl focus:ring-3 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all duration-300 text-slate-800 placeholder-slate-400 hover:border-slate-300"
-                  placeholder="Entrez votre nom complet"
+                  className="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-slate-700 placeholder-slate-400"
+                  placeholder={t("auth.fullName")}
                 />
                 <div className="absolute left-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 scale-x-0 group-focus-within:scale-x-100 transition-transform duration-300 rounded-full"></div>
               </div>
@@ -196,7 +201,7 @@ export default function SignupPage() {
             {/* Email */}
             <div className="group">
               <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Adresse E-mail
+                {t("common.email")}
               </label>
               <div className="relative">
                 <input
@@ -205,8 +210,8 @@ export default function SignupPage() {
                   value={form.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2.5 bg-white/60 border border-slate-200 rounded-xl focus:ring-3 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all duration-300 text-slate-800 placeholder-slate-400 hover:border-slate-300"
-                  placeholder="votre.email@universite.fr"
+                  className="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-slate-700 placeholder-slate-400"
+                  placeholder={t("auth.emailPlaceholder")}
                 />
                 <div className="absolute left-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 scale-x-0 group-focus-within:scale-x-100 transition-transform duration-300 rounded-full"></div>
               </div>
@@ -215,7 +220,7 @@ export default function SignupPage() {
             {/* Password */}
             <div className="group">
               <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Mot de Passe
+                {t("common.password")}
               </label>
               <div className="relative">
                 <input
@@ -224,13 +229,18 @@ export default function SignupPage() {
                   value={form.password}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2.5 pr-10 bg-white/60 border border-slate-200 rounded-xl focus:ring-3 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all duration-300 text-slate-800 placeholder-slate-400 hover:border-slate-300"
-                  placeholder="Créez un mot de passe sécurisé"
+                  className="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-slate-700 placeholder-slate-400 pr-12"
+                  placeholder={t("common.password")}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                  title={
+                    showPassword
+                      ? t("auth.hidePassword")
+                      : t("auth.showPassword")
+                  }
                 >
                   {showPassword ? (
                     <svg
@@ -271,64 +281,28 @@ export default function SignupPage() {
                 <div className="absolute left-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 scale-x-0 group-focus-within:scale-x-100 transition-transform duration-300 rounded-full"></div>
               </div>
               <p className="text-xs text-slate-500 mt-1">
-                Minimum 8 caractères requis
+                {t("auth.passwordRequirement")}
               </p>
             </div>
-
-            {/* Error Message */}
-            {error && (
-              <div className="bg-red-50/80 border border-red-200 rounded-xl p-3 backdrop-blur-sm">
-                <div className="flex items-center">
-                  <svg
-                    className="w-4 h-4 text-red-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <p className="text-red-700 text-sm">{error}</p>
-                </div>
-              </div>
-            )}
 
             {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-slate-400 disabled:to-slate-400 text-white font-semibold py-2.5 px-5 rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-[1.01] disabled:scale-100 disabled:cursor-not-allowed relative overflow-hidden group"
+              className="w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-600 hover:via-indigo-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="relative flex items-center justify-center">
                 {loading ? (
                   <>
-                    <svg
-                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
-                    Création de votre compte...
+                    <span className="relative flex items-center justify-center">
+                      <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
+                      <span className="opacity-75">
+                        {t("auth.creatingAccount")}
+                      </span>
+                    </span>
                   </>
                 ) : (
-                  "Créer un Compte"
+                  t("common.signup")
                 )}
               </span>
             </button>
@@ -337,20 +311,19 @@ export default function SignupPage() {
           {/* Additional Info */}
           <div className="mt-4 p-3 bg-blue-50/50 rounded-xl border border-blue-100">
             <p className="text-xs text-slate-600 text-center">
-              🎓 Rejoignez des milliers d&apos;étudiants qui utilisent déjà
-              nrivizi pour exceller dans leur parcours académique
+              🎓 {t("auth.joinStudents")}
             </p>
           </div>
 
           {/* Sign In Link */}
           <div className="mt-4 text-center">
             <p className="text-slate-600 text-sm">
-              Vous avez déjà un compte ?{" "}
+              {t("auth.hasAccount")}{" "}
               <a
                 href="/login"
                 className="text-blue-600 hover:text-blue-700 font-semibold transition-colors hover:underline"
               >
-                Connectez-vous ici
+                {t("auth.signInHere")}
               </a>
             </p>
           </div>
