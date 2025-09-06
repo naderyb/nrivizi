@@ -15,17 +15,6 @@ export async function GET() {
     const usersResult = await pool.query("SELECT COUNT(*) FROM users");
     const totalUsers = parseInt(usersResult.rows[0].count);
 
-    // Get active announcements count
-    const announcementsResult = await pool.query(`
-      SELECT COUNT(*) FROM announcements 
-      WHERE priority IN ('high', 'medium') AND created_at > NOW() - INTERVAL '30 days'
-    `);
-    const activeAnnouncements = parseInt(announcementsResult.rows[0].count);
-
-    // Get upcoming exams count
-    const examsResult = await pool.query("SELECT COUNT(*) FROM exams");
-    const upcomingExams = parseInt(examsResult.rows[0].count);
-
     // Get pending password recovery requests
     const passwordRecoveryResult = await pool.query(`
       SELECT COUNT(*) FROM password_recovery_requests 
@@ -57,12 +46,9 @@ export async function GET() {
 
     const stats = {
       totalUsers,
-      activeAnnouncements,
-      upcomingExams,
       recentLogins,
       pendingPasswordRecoveries,
       userGrowth,
-      systemHealth: 95, // Static for now, could be calculated based on various factors
     };
 
     return NextResponse.json(stats);
@@ -77,7 +63,6 @@ export async function GET() {
       recentLogins: 0,
       pendingPasswordRecoveries: 0,
       userGrowth: 0,
-      systemHealth: 95,
     };
 
     return NextResponse.json(fallbackStats);
