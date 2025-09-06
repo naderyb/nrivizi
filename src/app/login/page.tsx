@@ -3,8 +3,11 @@
 import { useState, useEffect, useRef, Suspense } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useTranslation } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 function LoginContent() {
+  const { t } = useTranslation();
   const router = useRouter();
   const searchParams = useSearchParams();
   const message = searchParams.get("message");
@@ -21,6 +24,7 @@ function LoginContent() {
   const [recoveryFullName, setRecoveryFullName] = useState("");
   const [recoveryEmail, setRecoveryEmail] = useState("");
   const [recoveryLoading, setRecoveryLoading] = useState(false);
+
   // Mouse tracking effect
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -29,10 +33,9 @@ function LoginContent() {
         const centerX = container.left + container.width / 2;
         const centerY = container.top + container.height / 2;
 
-        const deltaX = (e.clientX - centerX) * 0.01; // Reduced sensitivity for subtlety
+        const deltaX = (e.clientX - centerX) * 0.01;
         const deltaY = (e.clientY - centerY) * 0.01;
 
-        // Apply transform to the card
         cardRef.current.style.transform = `translate(${deltaX}px, ${deltaY}px) rotateX(${
           -deltaY * 0.5
         }deg) rotateY(${deltaX * 0.5}deg)`;
@@ -57,18 +60,16 @@ function LoginContent() {
       });
 
       if (result?.error) {
-        setError("Identifiants invalides");
+        setError(t("login.invalidCredentials"));
       } else {
-        setSuccessMessage(`Bonjour, ${fullName}!`);
+        setSuccessMessage(`${t("login.welcome")}, ${fullName}!`);
         setTimeout(() => {
-          // For now, always redirect to home and let home page handle admin redirect
           router.push("/");
-          // Force a page refresh to ensure session is properly loaded
           window.location.href = "/";
         }, 2000);
       }
     } catch {
-      setError("Une erreur s'est produite. Veuillez réessayer.");
+      setError(t("login.generalError"));
     } finally {
       setLoading(false);
     }
@@ -92,18 +93,16 @@ function LoginContent() {
       const data = await response.json();
 
       if (response.ok) {
-        setSuccessMessage(
-          "Demande de récupération envoyée avec succès. Un administrateur traitera votre demande."
-        );
+        setSuccessMessage(t("recovery.success"));
         setShowRecoveryModal(false);
         setRecoveryFullName("");
         setRecoveryEmail("");
       } else {
-        setError(data.error || "Erreur lors de l'envoi de la demande");
+        setError(data.error || t("recovery.error"));
       }
     } catch (error) {
       console.error("Password recovery error:", error);
-      setError("Une erreur s'est produite. Veuillez réessayer.");
+      setError(t("login.generalError"));
     } finally {
       setRecoveryLoading(false);
     }
@@ -115,6 +114,8 @@ function LoginContent() {
       className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50/30 to-cyan-50/50 flex items-center justify-center p-4 relative overflow-hidden"
       style={{ perspective: "1000px" }}
     >
+      <LanguageSwitcher />
+
       {/* Subtle animated background elements - complementary to signup */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-emerald-100/40 to-teal-100/40 rounded-full blur-3xl animate-pulse"></div>
@@ -173,23 +174,21 @@ function LoginContent() {
               </svg>
             </div>
             <h2 className="text-3xl font-bold text-slate-800 mb-2">
-              Bon Retour
+              {t("login.welcome")}
             </h2>
-            <p className="text-slate-600">
-              Continuez votre parcours d&apos;apprentissage
-            </p>
+            <p className="text-slate-600">{t("login.subtitle")}</p>
             <div className="flex items-center justify-center gap-4 mt-4 text-xs text-slate-500">
               <span className="flex items-center gap-1">
                 <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                Connexion Sécurisée
+                {t("login.secureConnection")}
               </span>
               <span className="flex items-center gap-1">
                 <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
-                Accès Rapide
+                {t("login.quickAccess")}
               </span>
               <span className="flex items-center gap-1">
                 <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                Sûr et Rapide
+                {t("login.safeAndFast")}
               </span>
             </div>
           </div>
@@ -240,7 +239,7 @@ function LoginContent() {
             {/* Full Name */}
             <div className="group">
               <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Nom Complet
+                {t("login.fullName")}
               </label>
               <div className="relative">
                 <input
@@ -249,7 +248,7 @@ function LoginContent() {
                   onChange={(e) => setFullName(e.target.value)}
                   required
                   className="w-full px-4 py-3 bg-white/60 border border-slate-200 rounded-xl focus:ring-3 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all duration-300 text-slate-800 placeholder-slate-400 hover:border-slate-300"
-                  placeholder="Entrez votre nom complet"
+                  placeholder={t("login.fullNamePlaceholder")}
                 />
                 <div className="absolute left-0 bottom-0 h-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 scale-x-0 group-focus-within:scale-x-100 transition-transform duration-300 rounded-full"></div>
               </div>
@@ -258,7 +257,7 @@ function LoginContent() {
             {/* Password */}
             <div className="group">
               <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Mot de Passe
+                {t("login.password")}
               </label>
               <div className="relative">
                 <input
@@ -267,7 +266,7 @@ function LoginContent() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   className="w-full px-4 py-3 pr-12 bg-white/60 border border-slate-200 rounded-xl focus:ring-3 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all duration-300 text-slate-800 placeholder-slate-400 hover:border-slate-300"
-                  placeholder="Entrez votre mot de passe"
+                  placeholder={t("login.passwordPlaceholder")}
                 />
                 <button
                   type="button"
@@ -364,10 +363,10 @@ function LoginContent() {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    Connexion en cours...
+                    {t("login.signingIn")}
                   </>
                 ) : (
-                  "Se Connecter"
+                  t("login.signIn")
                 )}
               </span>
             </button>
@@ -379,27 +378,26 @@ function LoginContent() {
               onClick={() => setShowRecoveryModal(true)}
               className="text-emerald-600 hover:text-emerald-700 text-sm font-medium transition-colors hover:underline"
             >
-              Mot de passe oublié ?
+              {t("login.forgotPassword")}
             </button>
           </div>
 
           {/* Additional Info - different from signup */}
           <div className="mt-6 p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
             <p className="text-xs text-slate-600 text-center">
-              🔐 Vos données sont protégées avec une sécurité de niveau
-              entreprise
+              {t("login.securityNote")}
             </p>
           </div>
 
           {/* Sign Up Link */}
           <div className="mt-6 text-center">
             <p className="text-slate-600 text-sm">
-              Vous n&apos;avez pas de compte ?{" "}
+              {t("login.noAccount")}{" "}
               <a
                 href="/signup"
                 className="text-emerald-600 hover:text-emerald-700 font-semibold transition-colors hover:underline"
               >
-                Créez-en un ici
+                {t("login.createAccount")}
               </a>
             </p>
           </div>
@@ -411,38 +409,37 @@ function LoginContent() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4">
             <h3 className="text-xl font-bold text-gray-800 mb-4">
-              Récupération de mot de passe
+              {t("recovery.title")}
             </h3>
             <p className="text-gray-600 mb-6 text-sm">
-              Entrez vos informations pour demander une réinitialisation de mot
-              de passe.
+              {t("recovery.description")}
             </p>
 
             <form onSubmit={handlePasswordRecovery} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Nom complet
+                  {t("recovery.fullName")}
                 </label>
                 <input
                   type="text"
                   value={recoveryFullName}
                   onChange={(e) => setRecoveryFullName(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-gray-900 placeholder-gray-500"
-                  placeholder="Votre nom complet"
+                  placeholder={t("recovery.fullNamePlaceholder")}
                   required
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Adresse e-mail
+                  {t("recovery.email")}
                 </label>
                 <input
                   type="email"
                   value={recoveryEmail}
                   onChange={(e) => setRecoveryEmail(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-gray-900 placeholder-gray-500"
-                  placeholder="votre.email@exemple.com"
+                  placeholder={t("recovery.emailPlaceholder")}
                   required
                 />
               </div>
@@ -453,7 +450,7 @@ function LoginContent() {
                   disabled={recoveryLoading}
                   className="flex-1 bg-emerald-600 text-white py-2 px-4 rounded-lg hover:bg-emerald-700 transition-colors disabled:opacity-50"
                 >
-                  {recoveryLoading ? "Envoi..." : "Envoyer la demande"}
+                  {recoveryLoading ? t("recovery.sending") : t("recovery.send")}
                 </button>
                 <button
                   type="button"
@@ -464,7 +461,7 @@ function LoginContent() {
                   }}
                   className="flex-1 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors"
                 >
-                  Annuler
+                  {t("recovery.cancel")}
                 </button>
               </div>
             </form>
