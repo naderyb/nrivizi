@@ -216,11 +216,23 @@
     "signupInterfaceDesc": "Beautiful registration form with validation and multi-language support"
   },
   "resetPassword": {
-    "tokenMissing": "Reset token is missing",
-    "tokenVerificationError": "Error verifying reset token",
+    "title": "New Password",
+    "welcomeMessage": "Hello {{name}}, set your new password",
+    "tokenMissing": "Missing token",
+    "tokenVerificationError": "Error during token verification",
     "passwordMismatch": "Passwords do not match",
-    "passwordTooShort": "Password must be at least 8 characters",
-    "title": "Reset Your Password",
-    "subtitle": "Enter your new password below"
+    "passwordTooShort": "Password must contain at least 8 characters",
+    "networkError": "Network error. Please try again.",
+    "newPassword": "New password",
+    "newPasswordPlaceholder": "Enter your new password",
+    "confirmPassword": "Confirm password",
+    "confirmPasswordPlaceholder": "Confirm your new password",
+    "passwordRequirement": "Minimum 8 characters required",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "resetting": "Resetting...",
+    "resetButton": "Reset Password",
+    "redirecting": "Redirecting to login page...",
+    "backToLogin": "Back to login"
   }
 }
