@@ -20,15 +20,13 @@
   },
   "recovery": {
     "title": "Password Recovery",
-    "description": "Enter your information to request a password reset.",
-    "fullName": "Full name",
-    "fullNamePlaceholder": "Your full name",
+    "description": "Enter your email address to receive a password reset link.",
     "email": "Email address",
     "emailPlaceholder": "your.email@example.com",
-    "send": "Send Request",
+    "send": "Send Reset Link",
     "sending": "Sending...",
     "cancel": "Cancel",
-    "success": "Recovery request sent successfully. An administrator will process your request.",
+    "success": "If this email exists in our system, you will receive a reset link.",
     "error": "Error sending request"
   },
   "common": {
@@ -216,5 +214,25 @@
     "madeWith": "Made with",
     "signupInterface": "Signup Interface",
     "signupInterfaceDesc": "Beautiful registration form with validation and multi-language support"
+  },
+  "resetPassword": {
+    "title": "New Password",
+    "welcomeMessage": "Hello {{name}}, set your new password",
+    "tokenMissing": "Missing token",
+    "tokenVerificationError": "Error during token verification",
+    "passwordMismatch": "Passwords do not match",
+    "passwordTooShort": "Password must contain at least 8 characters",
+    "networkError": "Network error. Please try again.",
+    "newPassword": "New password",
+    "newPasswordPlaceholder": "Enter your new password",
+    "confirmPassword": "Confirm password",
+    "confirmPasswordPlaceholder": "Confirm your new password",
+    "passwordRequirement": "Minimum 8 characters required",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "resetting": "Resetting...",
+    "resetButton": "Reset Password",
+    "redirecting": "Redirecting to login page...",
+    "backToLogin": "Back to login"
   }
 }
