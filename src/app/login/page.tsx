@@ -21,7 +21,6 @@ function LoginContent() {
   const [showPassword, setShowPassword] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [showRecoveryModal, setShowRecoveryModal] = useState(false);
-  const [recoveryFullName, setRecoveryFullName] = useState("");
   const [recoveryEmail, setRecoveryEmail] = useState("");
   const [recoveryLoading, setRecoveryLoading] = useState(false);
 
@@ -81,11 +80,10 @@ function LoginContent() {
     setError("");
 
     try {
-      const response = await fetch("/api/admin/password-recovery", {
+      const response = await fetch("/api/auth/password-reset", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fullName: recoveryFullName,
           email: recoveryEmail,
         }),
       });
@@ -93,16 +91,15 @@ function LoginContent() {
       const data = await response.json();
 
       if (response.ok) {
-        setSuccessMessage(t("recovery.success"));
+        setSuccessMessage(data.message);
         setShowRecoveryModal(false);
-        setRecoveryFullName("");
         setRecoveryEmail("");
       } else {
-        setError(data.error || t("recovery.error"));
+        setError(data.error || "Erreur lors de l'envoi de la demande");
       }
     } catch (error) {
       console.error("Password recovery error:", error);
-      setError(t("login.generalError"));
+      setError("Erreur réseau. Veuillez réessayer.");
     } finally {
       setRecoveryLoading(false);
     }
@@ -418,20 +415,6 @@ function LoginContent() {
             <form onSubmit={handlePasswordRecovery} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t("recovery.fullName")}
-                </label>
-                <input
-                  type="text"
-                  value={recoveryFullName}
-                  onChange={(e) => setRecoveryFullName(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-gray-900 placeholder-gray-500"
-                  placeholder={t("recovery.fullNamePlaceholder")}
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
                   {t("recovery.email")}
                 </label>
                 <input
@@ -456,7 +439,6 @@ function LoginContent() {
                   type="button"
                   onClick={() => {
                     setShowRecoveryModal(false);
-                    setRecoveryFullName("");
                     setRecoveryEmail("");
                   }}
                   className="flex-1 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors"
