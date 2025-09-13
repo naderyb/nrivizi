@@ -15,6 +15,8 @@ export async function POST(req: Request) {
       );
     }
 
+    console.log("Password reset requested for:", email);
+
     // Check if user exists with this email
     const userResult = await pool.query(
       "SELECT id, full_name, email FROM users WHERE email = $1",
@@ -31,10 +33,17 @@ export async function POST(req: Request) {
     }
 
     const user = userResult.rows[0];
+    console.log("User found:", {
+      id: user.id,
+      name: user.full_name,
+      email: user.email,
+    });
 
     // Generate secure token
     const token = crypto.randomBytes(32).toString("hex");
     const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hour from now
+
+    console.log("Generated token:", token);
 
     // Delete any existing tokens for this user
     await pool.query("DELETE FROM password_reset_tokens WHERE user_id = $1", [
@@ -47,14 +56,18 @@ export async function POST(req: Request) {
       [user.id, token, expiresAt]
     );
 
+    console.log("Token saved to database");
+
     // Send email
     const emailResult = await sendPasswordResetEmail(
       user.email,
       token,
       user.full_name
     );
+    console.log("Email result:", emailResult);
 
     if (!emailResult.success) {
+      console.error("Email sending failed:", emailResult.error);
       return NextResponse.json(
         { error: "Erreur lors de l'envoi de l'email" },
         { status: 500 }
