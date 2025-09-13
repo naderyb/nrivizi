@@ -4,12 +4,11 @@ import nodemailer from "nodemailer";
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: parseInt(process.env.SMTP_PORT || "587"),
-  secure: false, // true for 465, false for other ports
+  secure: false,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
-  // Add these for better compatibility
   tls: {
     rejectUnauthorized: false,
   },
@@ -23,8 +22,13 @@ export async function sendPasswordResetEmail(
   const resetUrl = `${process.env.NEXTAUTH_URL}/reset-password?token=${token}`;
 
   const mailOptions = {
-    from: process.env.SMTP_FROM,
+    // Use your actual Gmail address but with a custom name
+    from: {
+      name: "nrivizi Platform",
+      address: process.env.SMTP_USER!, // This will be youb.nader@gmail.com
+    },
     to: email,
+    replyTo: "noreply@nrivizi.com", // Users will see this as reply address
     subject: "Réinitialisation de votre mot de passe - nrivizi",
     html: `
       <!DOCTYPE html>
@@ -63,7 +67,7 @@ export async function sendPasswordResetEmail(
               <p><strong>⚠️ Important :</strong></p>
               <ul>
                 <li>Ce lien est valide pendant <strong>1 heure</strong> seulement</li>
-                <li>Si vous n'avez pas demandé cette réinitialisation, ignorez cet email</li>
+                <li>Si vous n'avez pas demandé cette réinitialisation, ignorez cet email</li>  
                 <li>Ne partagez jamais ce lien avec personne</li>
               </ul>
             </div>
@@ -77,6 +81,7 @@ export async function sendPasswordResetEmail(
           <div class="footer">
             <p>© 2025 nrivizi - Campus IFAG, Hydra, Alger</p>
             <p>📧 nexusclub@insag.edu.dz</p>
+            <p>🚫 Ceci est un email automatique, ne pas répondre</p>
           </div>
         </div>
       </body>
@@ -85,7 +90,8 @@ export async function sendPasswordResetEmail(
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully:", info.messageId);
     return { success: true };
   } catch (error) {
     console.error("Error sending email:", error);
