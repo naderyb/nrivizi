@@ -20,15 +20,13 @@
   },
   "recovery": {
     "title": "Récupération de mot de passe",
-    "description": "Entrez vos informations pour demander une réinitialisation de mot de passe.",
-    "fullName": "Nom complet",
-    "fullNamePlaceholder": "Votre nom complet",
+    "description": "Entrez votre adresse email pour recevoir un lien de réinitialisation.",
     "email": "Adresse e-mail",
     "emailPlaceholder": "votre.email@exemple.com",
-    "send": "Envoyer la demande",
+    "send": "Envoyer le lien",
     "sending": "Envoi...",
     "cancel": "Annuler",
-    "success": "Demande de récupération envoyée avec succès. Un administrateur traitera votre demande.",
+    "success": "Si cette adresse email existe dans notre système, vous recevrez un lien de réinitialisation.",
     "error": "Erreur lors de l'envoi de la demande"
   },
   "common": {
@@ -216,5 +214,25 @@
     "madeWith": "Fait avec",
     "signupInterface": "Interface d'Inscription",
     "signupInterfaceDesc": "Magnifique formulaire d'inscription avec validation et support multi-langues"
+  },
+  "resetPassword": {
+    "title": "Nouveau mot de passe",
+    "welcomeMessage": "Bonjour {{name}}, définissez votre nouveau mot de passe",
+    "tokenMissing": "Token manquant",
+    "tokenVerificationError": "Erreur lors de la vérification du token",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères",
+    "networkError": "Erreur réseau. Veuillez réessayer.",
+    "newPassword": "Nouveau mot de passe",
+    "newPasswordPlaceholder": "Entrez votre nouveau mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe",
+    "passwordRequirement": "Minimum 8 caractères requis",
+    "showPassword": "Afficher le mot de passe",
+    "hidePassword": "Masquer le mot de passe",
+    "resetting": "Réinitialisation...",
+    "resetButton": "Réinitialiser le mot de passe",
+    "redirecting": "Redirection vers la page de connexion...",
+    "backToLogin": "Retour à la connexion"
   }
 }
