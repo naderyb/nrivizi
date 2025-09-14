@@ -326,8 +326,8 @@ export default function Home() {
             {/* Bottom */}
             <div className="border-t border-gray-200 mt-8 pt-6 text-center">
               <p className="text-gray-500 text-sm">
-                © 2025 nrivizi Club - Tous droits réservés | Fait avec ❤️ pour
-                nos étudiants
+                © 2025 nexus club - Tous droits réservés | Fait avec ❤️ pour nos
+                étudiants
               </p>
             </div>
           </div>
