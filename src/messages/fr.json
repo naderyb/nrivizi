@@ -234,5 +234,16 @@
     "resetButton": "Réinitialiser le mot de passe",
     "redirecting": "Redirection vers la page de connexion...",
     "backToLogin": "Retour à la connexion"
+  },
+  "maintenance": {
+    "title": "Site en maintenance",
+    "message": "nrivizi est actuellement en maintenance programmée.",
+    "apology": "Nexus Club s'excuse du désagrément — nous vous enverrons un email dès que le site sera prêt.",
+    "emailLabel": "Soyez averti par email",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "notifyMe": "Prévenez-moi",
+    "sending": "Envoi...",
+    "thankYou": "Merci pour votre patience",
+    "successMessage": "Nous vous avertirons dès que le site sera de retour."
   }
 }

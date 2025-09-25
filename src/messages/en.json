@@ -234,5 +234,16 @@
     "resetButton": "Reset Password",
     "redirecting": "Redirecting to login page...",
     "backToLogin": "Back to login"
+  },
+  "maintenance": {
+    "title": "Site under maintenance",
+    "message": "nrivizi is currently undergoing scheduled maintenance.",
+    "apology": "Nexus Club apologizes for the inconvenience — we’ll email you as soon as it’s ready.",
+    "emailLabel": "Get notified by email",
+    "emailPlaceholder": "your.email@example.com",
+    "notifyMe": "Notify me",
+    "sending": "Sending...",
+    "thankYou": "Thanks for your patience",
+    "successMessage": "We’ll notify you as soon as the site is back online."
   }
 }
