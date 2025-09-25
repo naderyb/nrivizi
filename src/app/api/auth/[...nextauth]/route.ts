@@ -2,6 +2,8 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcrypt";
 import { Pool } from "pg";
+import { JWT } from "next-auth/jwt";
+import { User, Session } from "next-auth";
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -39,17 +41,15 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async jwt({ token, user }: any) {
+    async jwt({ token, user }: { token: JWT; user: User | null }) {
       if (user) {
         token.role = user.role;
       }
       return token;
     },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async session({ session, token }: any) {
+    async session({ session, token }: { session: Session; token: JWT }) {
       if (token) {
-        session.user.id = token.sub;
+        session.user.id = token.sub || "";
         session.user.role = token.role;
       }
       return session;
