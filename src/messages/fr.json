@@ -236,14 +236,17 @@
     "backToLogin": "Retour à la connexion"
   },
   "maintenance": {
-    "title": "Site en maintenance",
-    "message": "nrivizi est actuellement en maintenance programmée.",
-    "apology": "Nexus Club s'excuse du désagrément — nous vous enverrons un email dès que le site sera prêt.",
-    "emailLabel": "Soyez averti par email",
+    "title": "En Maintenance",
+    "message": "Nous effectuons actuellement une maintenance programmée pour améliorer votre expérience. Notre équipe travaille dur pour vous remettre en ligne dès que possible.",
+    "apology": "Nexus Club s'excuse du désagrément et nous vous enverrons un email dès qu'il sera prêt.",
+    "emailPrompt": "Soyez notifié quand nous serons de retour :",
     "emailPlaceholder": "votre.email@exemple.com",
-    "notifyMe": "Prévenez-moi",
-    "sending": "Envoi...",
-    "thankYou": "Merci pour votre patience",
-    "successMessage": "Nous vous avertirons dès que le site sera de retour."
+    "notify": "Me Notifier",
+    "submitting": "Envoi...",
+    "thankYou": "Merci !",
+    "confirmMessage": "Nous vous notifierons dès que nrivizi sera de nouveau en ligne.",
+    "checkSpam": "📧 Veuillez vérifier votre dossier spam/courrier indésirable si vous ne recevez pas l'email dans quelques minutes.",
+    "contactInfo": "Pour les questions urgentes, veuillez nous contacter :",
+    "estimatedTime": "⏱️ Temps d'achèvement estimé : 2-4 heures"
   }
 }
