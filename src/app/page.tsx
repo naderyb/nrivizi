@@ -18,7 +18,7 @@ export default function Home() {
 
   const handleLogout = async () => {
     setLoading(true);
-    await signOut({ callbackUrl: "/login" });
+    await signOut({ callbackUrl: "/maintenance" });
   };
 
   if (status === "loading") {
@@ -30,7 +30,7 @@ export default function Home() {
   }
 
   if (!session) {
-    router.push("/login");
+    router.push("/maintenance");
     return null;
   }
 
