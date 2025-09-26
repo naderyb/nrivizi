@@ -26,9 +26,9 @@ const AdminSidebar = () => {
     },
     {
       icon: "🔑",
-      label: "Récupération de Mots de Passe",
-      href: "/admin/password-recovery",
-      description: "Traiter les demandes de récupération",
+      label: "notififier les utilisateurs",
+      href: "/admin/maintenance-notifications",
+      description: "Notifier les utilisateurs que nrivizi is back on line",
     },
   ];
 
