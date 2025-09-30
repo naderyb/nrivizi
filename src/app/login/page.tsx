@@ -54,7 +54,6 @@ function LoginContent() {
     try {
       const result = await signIn("credentials", {
         fullName,
-        password,
         redirect: false,
       });
 
@@ -251,7 +250,7 @@ function LoginContent() {
               </div>
             </div>
 
-            {/* Password */}
+            {/* Password - Frontend only, not verified */}
             <div className="group">
               <label className="block text-sm font-semibold text-slate-700 mb-2">
                 {t("login.password")}
@@ -261,7 +260,6 @@ function LoginContent() {
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  required
                   className="w-full px-4 py-3 pr-12 bg-white/60 border border-slate-200 rounded-xl focus:ring-3 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all duration-300 text-slate-800 placeholder-slate-400 hover:border-slate-300"
                   placeholder={t("login.passwordPlaceholder")}
                 />
