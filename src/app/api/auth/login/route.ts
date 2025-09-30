@@ -1,21 +1,15 @@
 import { NextResponse } from "next/server";
 import { pool } from "@/lib/db";
-import bcrypt from "bcrypt";
 import crypto from "crypto";
 
 export async function POST(req: Request) {
   try {
-    const { email, password } = await req.json();
+    const { email } = await req.json();
 
     const userRes = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
     const user = userRes.rows[0];
 
     if (!user) {
-      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
-    }
-
-    const match = await bcrypt.compare(password, user.password_hash);
-    if (!match) {
       return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
     }
 
