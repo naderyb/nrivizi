@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { compare } from "bcrypt";
 import { Pool } from "pg";
 import { JWT } from "next-auth/jwt";
 import { User, Session } from "next-auth";
@@ -15,10 +14,9 @@ export const authOptions = {
       name: "Credentials",
       credentials: {
         fullName: { label: "Full Name", type: "text" },
-        password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.fullName || !credentials.password) return null;
+        if (!credentials?.fullName) return null;
 
         const result = await pool.query(
           "SELECT * FROM users WHERE full_name = $1 LIMIT 1",
@@ -27,9 +25,6 @@ export const authOptions = {
 
         const user = result.rows[0];
         if (!user) return null;
-
-        const isValid = await compare(credentials.password, user.password_hash);
-        if (!isValid) return null;
 
         return {
           id: user.id,
