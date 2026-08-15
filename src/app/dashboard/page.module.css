@@ -1,0 +1,22 @@
+.main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: var(--space-10) var(--space-6);
+  }
+  
+  .domainSection {
+    margin-top: var(--space-10);
+  }
+  
+  .sectionLabel {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--fs-sm);
+    margin-bottom: var(--space-6);
+  }
+  
+  @media (max-width: 640px) {
+    .main {
+      padding: var(--space-6) var(--space-4);
+    }
+  }
