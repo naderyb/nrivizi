@@ -1,0 +1,109 @@
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+.title {
+  margin-bottom: var(--space-6);
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.statCard {
+  text-align: center;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.statLabel {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.statValue {
+  font-size: var(--fs-3xl);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.subheading {
+  margin-bottom: var(--space-4);
+}
+
+.domainGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.domainCard {
+  text-align: center;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.domainTitle {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.domainCount {
+  font-size: var(--fs-2xl);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.recentCard {
+  overflow: hidden;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+  min-width: 520px;
+}
+
+.table th {
+  text-align: left;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--glass-border-soft);
+}
+
+.table td {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--glass-border-soft);
+}
+
+.empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .statGrid,
+  .domainGrid {
+    grid-template-columns: 1fr;
+  }
+}
