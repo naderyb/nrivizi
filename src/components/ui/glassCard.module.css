@@ -1,37 +1,81 @@
+@property --rim-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 .card {
   --accent: transparent;
   --accent-glow: rgba(0, 0, 0, 0);
+  --mx: 24%;
+  --my: -6%;
+  --rim-angle: 0deg;
 
   position: relative;
   isolation: isolate;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  border: 1px solid transparent;
   border-radius: var(--radius-xl);
-  box-shadow:
-    inset 0 1px 0 var(--glass-highlight),
-    var(--glass-shadow);
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-  -webkit-backdrop-filter: blur(var(--glass-blur))
-    saturate(var(--glass-saturate));
   padding: var(--space-6);
   overflow: hidden;
-  transition:
-    box-shadow var(--transition-base),
-    transform var(--transition-base);
+  transform-style: preserve-3d;
+  transition: none;
+  animation: none;
+
+  /* Two background layers: the actual glass tint (padding-box) and a
+     slowly-rotating conic gradient that only shows in the 1px border gap —
+     this is the shimmering rim-light you see on real curved glass edges. */
+  background-image:
+    var(--glass-bg),
+    conic-gradient(
+      from var(--rim-angle),
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.05) 75%,
+      rgba(255, 255, 255, 0.9)
+    );
+  background-origin: border-box, border-box;
+  background-clip: padding-box, border-box;
+
+  /* The actual refraction: the SVG feDisplacementMap warps the backdrop
+     through a noise field before it's blurred+saturated, so it genuinely
+     bends light instead of just going soft. */
+  backdrop-filter: url(#liquid-distortion) blur(var(--glass-blur))
+    saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur))
+    saturate(var(--glass-saturate));
+
+  /* Layered insets fake the rounded edge of a glass dome: bright catch-
+     light top-left, faint shadow bottom-right, plus a hair of chromatic
+     fringing (the pink/cyan slivers) for that "real optics" feel. */
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.65),
+    inset -1.5px -1.5px 1px rgba(20, 20, 30, 0.05),
+    0.5px 0 0 rgba(255, 0, 110, 0.05),
+    -0.5px 0 0 rgba(0, 200, 255, 0.05),
+    var(--glass-shadow);
 }
 
-/* Specular highlight — light catching the top-left of the glass */
+@keyframes rimRotate {
+  to {
+    --rim-angle: 360deg;
+  }
+}
+
+/* Pointer-following specular highlight — moves with the cursor like real
+   light catching the glass surface. */
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   background: radial-gradient(
-    120% 70% at 15% -8%,
-    rgba(255, 255, 255, 0.7),
+    380px circle at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.8),
     transparent 55%
   );
   pointer-events: none;
+  transition: background 100ms ease-out;
 }
 
 .card.interactive {
@@ -39,24 +83,17 @@
 }
 
 .card.interactive:hover {
-  transform: translateY(-4px) scale(1.01);
   box-shadow:
-    inset 0 1px 0 var(--glass-highlight),
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.72),
+    inset -1.5px -1.5px 1px rgba(20, 20, 30, 0.06),
+    0.5px 0 0 rgba(255, 0, 110, 0.07),
+    -0.5px 0 0 rgba(0, 200, 255, 0.07),
     var(--glass-shadow-hover),
     0 0 0 1px var(--accent-glow);
 }
 
-/* Department accents — instead of a flat colored stripe, a soft blurred
-   wash of color glows through the frosted glass from the top, like light
-   diffusing through the panel. This is what actually reads as "glass"
-   instead of "card with a colored border". */
-.card.info,
-.card.finance,
-.card.marketing,
-.card.extra {
-  border-color: rgba(255, 255, 255, 0.55);
-}
-
+/* Department accents — a soft blurred color wash diffusing from the top,
+   like tinted light passing through frosted glass. */
 .card.info::after,
 .card.finance::after,
 .card.marketing::after,
@@ -108,16 +145,45 @@
 }
 
 .card.strong {
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(var(--glass-blur-strong))
+  background-image:
+    var(--glass-bg-strong),
+    conic-gradient(
+      from var(--rim-angle),
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.1) 25%,
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(255, 255, 255, 0.1) 75%,
+      rgba(255, 255, 255, 0.95)
+    );
+  background-origin: border-box, border-box;
+  background-clip: padding-box, border-box;
+  backdrop-filter: url(#liquid-distortion) blur(var(--glass-blur-strong))
     saturate(var(--glass-saturate));
   -webkit-backdrop-filter: blur(var(--glass-blur-strong))
     saturate(var(--glass-saturate));
 }
 
+/* Distortion + rotating rim are the most expensive parts — drop them on
+   small screens so the grid stays smooth on mid-range phones. */
 @media (max-width: 640px) {
   .card {
     padding: var(--space-5);
     border-radius: var(--radius-lg);
+    animation: none;
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    -webkit-backdrop-filter: blur(var(--glass-blur))
+      saturate(var(--glass-saturate));
+  }
+  .card.strong {
+    backdrop-filter: blur(var(--glass-blur-strong))
+      saturate(var(--glass-saturate));
+    -webkit-backdrop-filter: blur(var(--glass-blur-strong))
+      saturate(var(--glass-saturate));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
   }
 }
