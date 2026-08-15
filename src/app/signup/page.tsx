@@ -53,7 +53,9 @@ export default function SignupPage() {
   return (
     <main className={styles.wrap}>
       <GlassCard className={styles.card} strong>
-        <h1 className={styles.title}>Crée ton compte</h1>
+        <div className={styles.brandWrap}>
+          <img src="/logo.svg" alt="Nrivizi" className={styles.brandLogo} />
+        </div>
         <p className={styles.subtitle}>
           Nom, prénom, classe, email - rien de plus.
         </p>
