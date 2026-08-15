@@ -1,79 +1,43 @@
 import { NextResponse } from "next/server";
-import { pool } from "@/lib/db";
-import bcrypt from "bcrypt";
+import { createUser, DuplicateAccountError } from "@/lib/db";
+import { SESSION_COOKIE, sessionCookieOptions } from "@/lib/sessions";
+import { CLASSES } from "@/lib/classes";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: Request) {
+  const body = await req.json();
+  const nom = (body.nom ?? "").trim();
+  const prenom = (body.prenom ?? "").trim();
+  const classe = (body.classe ?? "").trim().toUpperCase();
+  const email = (body.email ?? "").trim();
+
+  if (!nom || !prenom) {
+    return NextResponse.json(
+      { error: "Nom et prénom requis." },
+      { status: 400 },
+    );
+  }
+  if (!CLASSES.some((c) => c.value === classe)) {
+    return NextResponse.json({ error: "Classe invalide." }, { status: 400 });
+  }
+  if (!EMAIL_RE.test(email)) {
+    return NextResponse.json({ error: "Email invalide." }, { status: 400 });
+  }
+
   try {
-    const { fullName, email, password } = await req.json();
-
-    if (!fullName || !email || !password) {
-      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
-    }
-
-    // Basic validations
-    if (password.length < 6) {
-      return NextResponse.json(
-        { error: "Password must be at least 6 characters" },
-        { status: 400 }
-      );
-    }
-    if (!email.includes("@")) {
-      return NextResponse.json(
-        { error: "Invalid email format" },
-        { status: 400 }
-      );
-    }
-
-    // Check for existing email
-    const emailCheck = await pool.query(
-      "SELECT id FROM users WHERE email = $1",
-      [email]
-    );
-
-    if (emailCheck.rows.length > 0) {
-      return NextResponse.json(
-        { error: "Cette adresse e-mail est déjà utilisée" },
-        { status: 400 }
-      );
-    }
-
-    // Check for existing full name (since we use it for login)
-    const nameCheck = await pool.query(
-      "SELECT id FROM users WHERE full_name = $1",
-      [fullName]
-    );
-
-    if (nameCheck.rows.length > 0) {
-      return NextResponse.json(
-        {
-          error: "Ce nom est déjà utilisé. Veuillez choisir un nom différent.",
-        },
-        { status: 400 }
-      );
-    }
-
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 12);
-
-    try {
-      const query = `
-        INSERT INTO users (full_name, email, password_hash)
-        VALUES ($1, $2, $3)
-        RETURNING id, full_name, email;
-      `;
-      const values = [fullName, email, hashedPassword];
-      const { rows } = await pool.query(query, values);
-
-      return NextResponse.json({ user: rows[0] }, { status: 201 });
-    } catch (dbErr: unknown) {
-      console.error("DB Error:", dbErr);
-      return NextResponse.json(
-        { error: "Erreur de base de données" },
-        { status: 500 }
-      );
-    }
+    const user = await createUser({ nom, prenom, classe, email });
+    const res = NextResponse.json({ ok: true, user });
+    res.cookies.set(SESSION_COOKIE, user.id, sessionCookieOptions);
+    return res;
   } catch (err) {
-    console.error("Signup error:", err);
-    return NextResponse.json({ error: "Signup failed" }, { status: 500 });
+    if (err instanceof DuplicateAccountError) {
+      return NextResponse.json({ error: err.message }, { status: 409 });
+    }
+    console.error(err);
+    return NextResponse.json(
+      { error: "Erreur serveur, réessaie." },
+      { status: 500 },
+    );
   }
 }
