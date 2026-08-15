@@ -21,10 +21,17 @@
   }
   
   .logo {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: var(--fs-lg);
-    color: var(--color-text-heading);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+  }
+
+  .logoImage {
+    display: block;
+    height: 28px;
+    width: auto;
+    max-width: 140px;
   }
   
   .right {

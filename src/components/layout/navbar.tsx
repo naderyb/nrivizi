@@ -2,6 +2,7 @@ import Link from "next/link";
 import Badge from "@/components/ui/badge";
 import LogoutButton from "./logoutButton";
 import { getClasseInfo, Dept } from "@/lib/classes";
+import Image from "next/image";
 import styles from "./navbar.module.css";
 
 interface NavbarProps {
@@ -18,8 +19,8 @@ export default function Navbar({ prenom, nom, classe }: NavbarProps) {
   return (
     <div className={styles.navWrap}>
       <nav className={styles.nav}>
-        <Link href="/dashboard" className={styles.logo}>
-          nrivizi
+        <Link href="/dashboard" className={styles.logo} aria-label="Accueil Nrivizi">
+          <Image src="/logo.svg" width={140} height={28} alt="Nrivizi" className={styles.logoImage} />
         </Link>
         <div className={styles.right}>
           {classeInfo && <Badge variant={dept}>{classeInfo.value}</Badge>}
