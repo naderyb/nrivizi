@@ -51,7 +51,7 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className={styles.form}>
           <GlassInput
             label="Nom complet ou email"
-            placeholder="Nader Bensalem ou toi@email.com"
+            placeholder="Nom complet ou email"
             value={identifier}
             onChange={(e) => setIdentifier(e.target.value)}
             error={error}
