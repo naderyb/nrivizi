@@ -4,8 +4,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <p className={styles.text}>
-        Fait avec ❤️ par des étudiants, pour des étudiants — un projet du{" "}
-        <strong>Nexus Club</strong>.
+        Fait avec ❤️ par des étudiants, pour des étudiants.
       </p>
     </footer>
   );
