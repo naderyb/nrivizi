@@ -1,24 +1,37 @@
+import type { Metadata } from "next";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
-import Providers from "./providers";
-import { LanguageProvider } from "@/contexts/LanguageContext";
+import AuroraBackground from "@/components/ui/auroraBackground";
+import Footer from "@/components/layout/footer";
 
-export const metadata = {
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-space-grotesk",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+});
+
+export const metadata: Metadata = {
   title: "nrivizi",
-  description: "Your academic journey starts here",
+  description: "Ton parcours académique, simplifié.",
 };
 
-// Set this to true when you want to enable maintenance mode
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="fr" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
-        <LanguageProvider>
-            <Providers>{children}</Providers>
-        </LanguageProvider>
+        <AuroraBackground />
+        {children}
+        <Footer />
       </body>
     </html>
   );
