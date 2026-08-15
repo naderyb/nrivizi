@@ -96,12 +96,85 @@ export async function createUser(data: {
     `;
     return rows[0] as DbUser;
   } catch (err: unknown) {
-    const pgErr = err as { code?: string };
-    if (pgErr?.code === "23505") {
+    const errorCode = (err as { code?: string })?.code;
+    if (errorCode === "23505") {
       throw new DuplicateAccountError(
         "Un compte existe déjà avec ce nom ou cet email. Connecte-toi plutôt.",
       );
     }
     throw err;
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* Admin-only functions                                                */
+/* ------------------------------------------------------------------ */
+
+export async function getAllUsers(): Promise<DbUser[]> {
+  const rows = await sql`
+    SELECT id, nom, prenom, classe, email, created_at as "createdAt"
+    FROM users
+    ORDER BY created_at DESC
+  `;
+  return rows as DbUser[];
+}
+
+export interface UserStats {
+  total: number;
+  byClasse: { classe: string; count: number }[];
+  last7Days: number;
+  recent: DbUser[];
+}
+
+export async function getUserStats(): Promise<UserStats> {
+  const totalRows = await sql`SELECT count(*)::int as count FROM users`;
+  const byClasseRows = await sql`
+    SELECT classe, count(*)::int as count FROM users GROUP BY classe ORDER BY classe
+  `;
+  const last7Rows = await sql`
+    SELECT count(*)::int as count FROM users WHERE created_at >= now() - interval '7 days'
+  `;
+  const recentRows = await sql`
+    SELECT id, nom, prenom, classe, email, created_at as "createdAt"
+    FROM users ORDER BY created_at DESC LIMIT 5
+  `;
+
+  return {
+    total: totalRows[0]?.count ?? 0,
+    byClasse: byClasseRows as { classe: string; count: number }[],
+    last7Days: last7Rows[0]?.count ?? 0,
+    recent: recentRows as DbUser[],
+  };
+}
+
+export async function updateUserAdmin(
+  id: string,
+  data: { nom: string; prenom: string; classe: string; email: string },
+): Promise<DbUser> {
+  try {
+    const rows = await sql`
+      UPDATE users
+      SET nom = ${data.nom.trim()},
+          prenom = ${data.prenom.trim()},
+          classe = ${data.classe},
+          email = ${normalizeEmail(data.email)}
+      WHERE id = ${id}
+      RETURNING id, nom, prenom, classe, email, created_at as "createdAt"
+    `;
+    if (!rows[0]) throw new Error("User not found");
+    return rows[0] as DbUser;
+  } catch (err: unknown) {
+    const errorCode = (err as { code?: string })?.code;
+    if (errorCode === "23505") {
+      throw new DuplicateAccountError(
+        "Un autre compte utilise déjà ce nom ou cet email.",
+      );
+    }
+    throw err;
+  }
+}
+
+/** Hard delete — permanently removes the row, per your call. */
+export async function deleteUser(id: string): Promise<void> {
+  await sql`DELETE FROM users WHERE id = ${id}`;
 }
