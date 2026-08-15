@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import AuroraBackground from "@/components/ui/auroraBackground";
+import GlassFilters from "@/components/ui/glassFilter";
 import Footer from "@/components/layout/footer";
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
+        <GlassFilters />
         <AuroraBackground />
         {children}
         <Footer />
@@ -39,3 +41,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+
