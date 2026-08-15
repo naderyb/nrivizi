@@ -1,0 +1,104 @@
+/* ==========================================================================
+   nrivizi v3 — Design Tokens
+   Light liquid glass. No violet. 4 distinct accents, refined for contrast.
+   ========================================================================== */
+
+:root {
+  /* ---- Base surface ---- */
+  --color-bg: #f6f4f0;
+  --color-bg-alt: #fbfaf7;
+  --color-bg-deep: #ece9e2;
+
+  /* ---- Text ---- */
+  --color-text: #24242a;
+  --color-text-muted: #6b6b74;
+  --color-text-faint: #9a9aa2;
+  --color-text-heading: #14141a;
+  --color-text-on-accent: #ffffff;
+
+  /* ---- Liquid glass surfaces ----
+     Real glass reads as light bending through a translucent layer: a
+     brighter top edge, a blurred+saturated backdrop, and a soft outer
+     shadow for lift. These variables drive that everywhere. */
+  --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.22));
+  --glass-bg-strong: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.46));
+  --glass-bg-subtle: rgba(255, 255, 255, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-border-soft: rgba(20, 20, 26, 0.07);
+  --glass-highlight: rgba(255, 255, 255, 0.85);
+  --glass-blur: 22px;
+  --glass-blur-strong: 34px;
+  --glass-saturate: 180%;
+  --glass-shadow: 0 8px 30px rgba(30, 34, 51, 0.10);
+  --glass-shadow-hover: 0 18px 44px rgba(30, 34, 51, 0.16);
+
+  /* ---- Brand primary (UI accent) ---- */
+  --color-primary: #3e63dd;
+  --color-primary-hover: #3151bd;
+  --color-primary-soft: rgba(62, 99, 221, 0.12);
+  --color-primary-border: rgba(62, 99, 221, 0.35);
+
+  /* ---- Department accents (each a clearly distinct hue family) ---- */
+  --color-info: #10b3a3;              /* Informatique — teal */
+  --color-info-dark: #0b8c81;
+  --color-info-soft: rgba(16, 179, 163, 0.14);
+  --color-info-border: rgba(16, 179, 163, 0.4);
+
+  --color-marketing: #f2664c;         /* Action Commerciale — coral red */
+  --color-marketing-dark: #d6472f;
+  --color-marketing-soft: rgba(242, 102, 76, 0.14);
+  --color-marketing-border: rgba(242, 102, 76, 0.4);
+
+  --color-finance: #e8a516;           /* Comptabilité et Finance — gold */
+  --color-finance-dark: #c4870a;
+  --color-finance-soft: rgba(232, 165, 22, 0.16);
+  --color-finance-border: rgba(232, 165, 22, 0.42);
+
+  --color-extra: #e0448e;             /* Extra et Divers — magenta pink */
+  --color-extra-dark: #bb2f72;
+  --color-extra-soft: rgba(224, 68, 142, 0.14);
+  --color-extra-border: rgba(224, 68, 142, 0.4);
+
+  /* ---- Status ---- */
+  --color-success: #2fa876;
+  --color-error: #e0553f;
+  --color-warning: #e8a516;
+
+  /* ---- Radii — generous, rounded, "liquid" ---- */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 34px;
+  --radius-full: 999px;
+
+  /* ---- Type ---- */
+  --font-display: var(--font-space-grotesk, "Space Grotesk"), sans-serif;
+  --font-body: var(--font-inter, "Inter"), sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2.25rem;
+  --fs-3xl: 3rem;
+
+  /* ---- Spacing scale ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 150ms var(--ease);
+  --transition-base: 250ms var(--ease);
+  --transition-slow: 500ms var(--ease);
+}
