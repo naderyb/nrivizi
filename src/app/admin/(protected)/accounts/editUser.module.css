@@ -1,0 +1,55 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(20, 20, 26, 0.35);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: none;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.title {
+  margin-bottom: var(--space-5);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.error {
+  font-size: var(--fs-sm);
+  color: var(--color-error);
+  background: rgba(224, 85, 63, 0.08);
+  border: 1px solid rgba(224, 85, 63, 0.25);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
