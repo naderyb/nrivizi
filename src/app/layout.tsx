@@ -19,6 +19,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "nrivizi",
   description: "Ton parcours académique, simplifié.",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
