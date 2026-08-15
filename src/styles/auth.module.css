@@ -1,58 +1,83 @@
 .wrap {
-    min-height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-6);
-  }
-  
-  .card {
-    width: 100%;
-    max-width: 420px;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: var(--fs-2xl);
-    margin-bottom: var(--space-2);
-  }
-  
-  .subtitle {
-    color: var(--color-text-muted);
-    font-size: var(--fs-sm);
-    margin-bottom: var(--space-6);
-    line-height: 1.6;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    text-align: left;
-  }
-  
-  .footerNote {
-    margin-top: var(--space-6);
-    font-size: var(--fs-sm);
-    color: var(--color-text-muted);
-  }
-  
-  .footerNote a {
-    color: var(--color-primary);
-    font-weight: 600;
-  }
-  
-  .duplicateError {
-    font-size: var(--fs-sm);
-    color: var(--color-error);
-    background: rgba(224, 85, 63, 0.08);
-    border: 1px solid rgba(224, 85, 63, 0.25);
-    border-radius: var(--radius-sm);
-    padding: var(--space-3);
-  }
-  
-  .duplicateError a {
-    color: var(--color-error);
-    font-weight: 600;
-    text-decoration: underline;
-  }
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  overflow: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.title {
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-2);
+}
+
+.brandWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-2);
+}
+
+.brandLogo {
+  display: block;
+  height: 38px;
+  width: auto;
+  max-width: 180px;
+}
+
+.brandAdminLabel {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  text-align: left;
+}
+
+.footerNote {
+  margin-top: var(--space-6);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.footerNote a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.duplicateError {
+  font-size: var(--fs-sm);
+  color: var(--color-error);
+  background: rgba(224, 85, 63, 0.08);
+  border: 1px solid rgba(224, 85, 63, 0.25);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+}
+
+.duplicateError a {
+  color: var(--color-error);
+  font-weight: 600;
+  text-decoration: underline;
+}
