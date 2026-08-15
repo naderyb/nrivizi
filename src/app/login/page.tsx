@@ -43,7 +43,9 @@ export default function LoginPage() {
   return (
     <main className={styles.wrap}>
       <GlassCard className={styles.card} strong>
-        <h1 className={styles.title}>nrivizi</h1>
+        <div className={styles.brandWrap}>
+          <img src="/logo.svg" alt="Nrivizi" className={styles.brandLogo} />
+        </div>
         <p className={styles.subtitle}>
           Connecte-toi avec ton nom complet ou ton email.
         </p>
