@@ -24,13 +24,17 @@ export default function GreetingBanner({
       {showToast && (
         <div className={styles.toast}>
           <GlassCard className={styles.toastCard} accent="info" strong>
-            Bienvenue, {prenom} ! 🎉
+            Bienvenue, {prenom} ! bon courage!!
           </GlassCard>
         </div>
       )}
-      <h1 className={styles.heading}>
-        {isNew ? `Hey ${prenom} ` : `Hey ${prenom}, content de te revoir `}
-      </h1>
+
+      <div className={styles.hero}>
+        <h1 className={styles.heading}>Hey {prenom}</h1>
+        <p className={styles.subtitle}>
+          {isNew ? "Bienvenue parmi nous" : "Content de te revoir"}
+        </p>
+      </div>
     </>
   );
 }
