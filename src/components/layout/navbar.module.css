@@ -15,13 +15,9 @@
   border-radius: var(--radius-full);
   background: var(--glass-bg-strong);
   border: 1px solid var(--glass-border);
-  box-shadow:
-    inset 0 1px 0 var(--glass-highlight),
-    var(--glass-shadow);
-  backdrop-filter: blur(var(--glass-blur-strong))
-    saturate(var(--glass-saturate));
-  -webkit-backdrop-filter: blur(var(--glass-blur-strong))
-    saturate(var(--glass-saturate));
+  box-shadow: inset 0 1px 0 var(--glass-highlight), var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate));
 }
 
 .logo {
@@ -29,20 +25,13 @@
   align-items: center;
   justify-content: center;
   line-height: 0;
-  padding: 2px 0;
-  transition: transform 0.2s ease;
-}
-
-.logo:hover {
-  transform: translateY(-1px);
 }
 
 .logoImage {
   display: block;
-  height: 34px !important;
-  width: auto !important;
-  max-width: 170px;
-  filter: drop-shadow(0 6px 12px rgba(15, 23, 42, 0.12));
+  height: 28px;
+  width: auto;
+  max-width: 140px;
 }
 
 .right {
@@ -69,32 +58,12 @@
   font-size: var(--fs-xs);
   color: var(--color-text-on-accent);
   flex-shrink: 0;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 4px 12px rgba(0, 0, 0, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 12px rgba(0, 0, 0, 0.14);
 }
 
-.avatar.info {
-  background: linear-gradient(
-    160deg,
-    var(--color-info),
-    var(--color-info-dark)
-  );
-}
-.avatar.finance {
-  background: linear-gradient(
-    160deg,
-    var(--color-finance),
-    var(--color-finance-dark)
-  );
-}
-.avatar.marketing {
-  background: linear-gradient(
-    160deg,
-    var(--color-marketing),
-    var(--color-marketing-dark)
-  );
-}
+.avatar.info { background: linear-gradient(160deg, var(--color-info), var(--color-info-dark)); }
+.avatar.finance { background: linear-gradient(160deg, var(--color-finance), var(--color-finance-dark)); }
+.avatar.marketing { background: linear-gradient(160deg, var(--color-marketing), var(--color-marketing-dark)); }
 
 .name {
   font-size: var(--fs-sm);
